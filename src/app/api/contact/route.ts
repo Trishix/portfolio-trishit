@@ -17,36 +17,39 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Name, email, and message are required.' }, { status: 400 })
     }
 
-    const renderWebhookUrl = process.env.RENDER_MAIL_WEBHOOK_URL
+    const resendApiKey = process.env.RESEND_API_KEY
+    const resendFromEmail = process.env.RESEND_EMAIL
+    const supportEmail = process.env.SUPPORT_EMAIL || process.env.CONTACT_RECEIVER_EMAIL
 
-    if (!renderWebhookUrl) {
+    if (!resendApiKey || !resendFromEmail || !supportEmail) {
       return NextResponse.json(
-        { error: 'Render mail service is not configured. Set RENDER_MAIL_WEBHOOK_URL.' },
+        {
+          error:
+            'Resend mail service is not configured. Set RESEND_API_KEY, RESEND_EMAIL, and SUPPORT_EMAIL.',
+        },
         { status: 500 }
       )
     }
 
-    const response = await fetch(renderWebhookUrl, {
+    const response = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        ...(process.env.RENDER_MAIL_API_KEY
-          ? { Authorization: `Bearer ${process.env.RENDER_MAIL_API_KEY}` }
-          : {}),
+        Authorization: `Bearer ${resendApiKey}`,
       },
       body: JSON.stringify({
-        to: process.env.CONTACT_RECEIVER_EMAIL || 'contact@trishit.com',
+        from: resendFromEmail,
+        to: [supportEmail],
         subject: `Portfolio contact from ${name}`,
-        name,
-        email,
-        message,
+        reply_to: email,
+        text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
       }),
       cache: 'no-store',
     })
 
     if (!response.ok) {
-      const text = await response.text()
-      return NextResponse.json({ error: text || 'Render mail request failed.' }, { status: 502 })
+      const data = (await response.json().catch(() => null)) as { message?: string } | null
+      return NextResponse.json({ error: data?.message || 'Resend mail request failed.' }, { status: 502 })
     }
 
     return NextResponse.json({ ok: true })

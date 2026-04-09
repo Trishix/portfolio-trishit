@@ -7,19 +7,18 @@ export default function HeroSection() {
       <div className="w-full md:w-3/5 space-y-10">
         <div className="space-y-4">
           <span className="font-label text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
-            Full Stack Developer &amp; Agentic AI Developer
+            Full Stack &amp; AI Developer
           </span>
           <h1 className="font-headline text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tighter leading-[1.05] text-on-background">
             Trishit<br />
             <span className="text-primary-dim">Swarnakar</span>
           </h1>
         </div>
-        <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-xl font-medium">
+        {/* <p className="text-on-surface-variant text-lg md:text-xl leading-relaxed max-w-xl font-medium">
           Building robust <span className="text-on-surface font-bold">Agentic AI systems</span>, scaling{' '}
-          <span className="text-on-surface font-bold">full-stack applications</span> and exploring the frontiers of{' '}
-          <span className="text-on-surface font-bold">robotics</span> through melodic{' '}
-          <span className="text-on-surface font-bold">musical landscapes</span>.
-        </p>
+          <span className="text-on-surface font-bold">full-stack applications</span>, and actively exploring both{' '}
+          <span className="text-on-surface font-bold">robotics</span> and <span className="text-on-surface font-bold">music</span>.
+        </p> */}
         <div className="flex flex-col sm:flex-row items-start gap-6 pt-4">
           <a className="inline-flex items-center gap-2 rounded-md border border-outline-variant/15 px-8 py-4 font-headline text-base font-bold text-on-surface transition-all hover:bg-surface-container-low" href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">
             <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg">
@@ -32,6 +31,14 @@ export default function HeroSection() {
               <path d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 10.5H5.67V18h2.67v-7.5zm.17-2.32a1.55 1.55 0 1 0-3.1 0 1.55 1.55 0 0 0 3.1 0zM18.33 13.64c0-2.58-1.38-3.78-3.22-3.78-1.49 0-2.15.82-2.52 1.4V10.5H9.92V18h2.67v-3.71c0-.98.19-1.92 1.4-1.92 1.19 0 1.21 1.12 1.21 1.98V18h2.67v-4.36z"/>
             </svg>
             <span>LinkedIn</span>
+          </a>
+          <a className="inline-flex items-center gap-2 rounded-md border border-outline-variant/15 px-8 py-4 font-headline text-base font-bold text-on-surface transition-all hover:bg-surface-container-low" href="https://www.instagram.com/ft.trishit/" target="_blank" rel="noreferrer noopener">
+            <svg aria-hidden="true" viewBox="0 0 24 24" className="h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="1.8">
+              <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
+            </svg>
+            <span>Instagram</span>
           </a>
         </div>
         <div className="pt-12 flex items-center gap-8 border-t border-outline-variant/15">
@@ -48,7 +55,7 @@ export default function HeroSection() {
       </div>
       <div className="w-full md:w-2/5 relative">
         <div className="absolute -inset-4 bg-surface-container-low rounded-xl -z-10 rotate-1"></div>
-        <div className="aspect-square w-full overflow-hidden rounded-lg shadow-2xl bg-surface-container-highest">
+        <div className="relative aspect-square w-full overflow-hidden rounded-lg shadow-2xl bg-surface-container-highest">
           <Image
             alt="Trishit Swarnakar Portrait"
             src="https://lh3.googleusercontent.com/aida/ADBb0uhUhjtJeKYns4SUxWyztjSNQbKvscNSk8WHMPA1zC5SHdesGnwyNkH7_NActvZscE1t-gzHjZSFwTlybhuiKey2bdFVWYzpeTkj_m6gLZp2ljLLa53ThOvEisMYYHOpUnhAOEWkMtm1x1uZwCq_o2juZs6xxteevcr0YCEPjiN_AJbJjRitZGRqXxyapNbCa1Uc7Qm5hJRilCImMQMqwbQrxdxoEfKr4VZ6NNMnyUbX9Y_ljW77DJcRiAwI7aEvKXPhpN2HRL4gZYA"

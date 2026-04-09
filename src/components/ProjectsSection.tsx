@@ -40,22 +40,22 @@ export default function ProjectsSection() {
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
                   <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">AI Agent</span>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2024</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2025</span>
                 </div>
-                <span className="text-[10px] font-bold text-on-surface-variant">AGENTIC-AI</span>
+                <span className="text-[10px] font-bold text-on-surface-variant">AI ASSISTANT</span>
               </div>
               <h3 className="text-4xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">UBOT</h3>
               <p className="text-on-surface-variant text-base leading-relaxed">
-                An intelligent portfolio concierge utilizing Agentic AI workflows to answer specific queries about projects, skills, and professional experience.
+                A tool that turns portfolio content into an embeddable chatbot. It answers visitor questions using your projects and experience data.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
-                  Semantic context retrieval for precise inquiries
+                  Semantic search retrieves relevant context before each answer
                 </li>
                 <li className="flex items-center text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
-                  Vectorized knowledge base with automated sync
+                  Vector knowledge base synced with portfolio updates and GitHub repositories
                 </li>
               </ul>
             </div>
@@ -81,23 +81,23 @@ export default function ProjectsSection() {
             <div className="flex flex-col space-y-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">Social Tech</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">Learning Platform</span>
                   <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2024</span>
                 </div>
                 <span className="text-[10px] font-bold text-on-surface-variant">FULL-STACK</span>
               </div>
               <h3 className="text-4xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">STRINGZ</h3>
               <p className="text-on-surface-variant text-base leading-relaxed">
-                A high-performance social ecosystem developed for real-time engagement and instant messaging.
+                A full-stack learning platform with video streaming, payment checkout, and CRUD workflows for course content.
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
-                  Real-time bi-directional events via WebSockets
+                  Real-time bi-directional events over WebSockets
                 </li>
                 <li className="flex items-center text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
-                  Scalable infrastructure using Docker orchestration
+                  Containerized deployment and local orchestration with Docker
                 </li>
               </ul>
             </div>
@@ -133,7 +133,7 @@ export default function ProjectsSection() {
               <div className="flex flex-col space-y-3">
                 <h3 className="text-3xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Responsively</h3>
                 <p className="text-on-surface-variant text-base leading-relaxed">
-                  Contributions to the Responsively App, enhancing open source dev tooling tailored for responsive web development workflows.
+                  Contributed fixes to Responsively App to improve multi-viewport testing for responsive web workflows.
                 </p>
               </div>
             </div>
@@ -158,7 +158,7 @@ export default function ProjectsSection() {
               <div className="flex flex-col space-y-3">
                 <h3 className="text-3xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Lamatic AI</h3>
                 <p className="text-on-surface-variant text-base leading-relaxed">
-                  Open source contributions driving forward structured GenAI solutions and agentic frameworks.
+                  Built a System Design Analyzer kit for Lamatic AI's AgentKit repository.
                 </p>
               </div>
             </div>
@@ -197,7 +197,7 @@ export default function ProjectsSection() {
                 </div>
                 <h3 className="text-3xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">SAST</h3>
                 <p className="text-on-surface-variant text-base leading-relaxed">
-                  Active contributor and organization member, collaborating on technical initiatives and driving development within the community.
+                  Contribute to club projects, internal tools, and technical event setup as an active organization member.
                 </p>
               </div>
             </div>

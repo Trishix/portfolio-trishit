@@ -17,7 +17,7 @@ export default function JourneySection() {
               <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">HPAIR Delegate</h4>
               <p className="mb-2 text-sm font-medium text-on-surface-variant">Harvard Project for Asian &amp; International Relations</p>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                Selected to engage in global dialogue on international relations and technological progress.
+                Selected as a delegate to discuss policy, technology, and regional issues with global peers.
               </p>
             </div>
 
@@ -25,7 +25,7 @@ export default function JourneySection() {
               <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">Musician</h4>
               <p className="mb-2 text-sm font-medium text-on-surface-variant">Guitarist</p>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                More than 10+ years of experience as a lead guitarist
+                10+ years as a lead guitarist, including live performance and composition.
               </p>
             </div>
 
@@ -43,7 +43,7 @@ export default function JourneySection() {
               </h4>
               <p className="mb-2 text-sm font-medium text-on-surface-variant">Newton School of Technology - RU</p>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                Managed complex events and technical workshops while fostering a community of innovators.
+                Ran workshops and events, coordinated teams, and helped students build robotics projects.
               </p>
             </div>
 
@@ -60,7 +60,7 @@ export default function JourneySection() {
                 </a>
               </h4>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                Building and supporting technical initiatives, product experiences, and community-facing solutions.
+                Build and maintain web tools and event infrastructure for the SAST community.
               </p>
             </div>
           </div>

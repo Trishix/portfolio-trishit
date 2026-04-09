@@ -59,21 +59,21 @@ export default function DisciplinesSection() {
             <span className="material-symbols-outlined text-primary text-4xl">database</span>
             <h3 className="mt-5 font-headline text-xl font-bold md:text-2xl">Agentic AI Systems</h3>
             <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              Designing autonomous AI workflows that plan, reason, and execute across dynamic real-time data sources.
+              I build agent workflows that fetch live data, decide the next step, and execute tasks like search, summarization, and API actions.
             </p>
           </div>
           <div className="h-full rounded-xl bg-surface-container-lowest p-6 shadow-sm transition-transform hover:translate-y-[-4px] md:p-8">
             <span className="material-symbols-outlined text-primary text-4xl">terminal</span>
             <h3 className="mt-5 font-headline text-xl font-bold md:text-2xl">Full Stack Dev</h3>
             <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              Crafting end-to-end applications with modern frameworks, focusing on performance, scalability, and user-centric design.
+              I build and deploy end-to-end apps with React, Next.js, TypeScript, APIs, and databases, with attention to speed and maintainability.
             </p>
           </div>
           <div className="h-full rounded-xl bg-surface-container-lowest p-6 shadow-sm transition-transform hover:translate-y-[-4px] md:p-8">
             <span className="material-symbols-outlined text-primary text-4xl">precision_manufacturing</span>
-            <h3 className="mt-5 font-headline text-xl font-bold md:text-2xl">Robotics &amp; Music</h3>
+            <h3 className="mt-5 font-headline text-xl font-bold md:text-2xl">Side Quests</h3>
             <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              Exploring the synergy between autonomous movement and algorithmic sound composition through embedded systems.
+              I am interested in robotics, active in music as a guitarist and composer, and also into photography and cinematography.
             </p>
           </div>
         </div>

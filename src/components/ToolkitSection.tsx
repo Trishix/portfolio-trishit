@@ -5,10 +5,10 @@ export default function ToolkitSection() {
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end md:gap-8">
           <div className="max-w-xl">
             <span className="mb-3 block font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant">The Toolkit</span>
-            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">Capabilities &amp; Specialized Skills</h2>
+            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">Skills &amp; Tools</h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-on-surface-variant">
-            A multidisciplinary stack focused on Artificial Intelligence, modern web architecture, and digital strategy.
+            Tools I use in day-to-day work across AI, web development, data visualization, and finance coursework. Labels show usage frequency, not test scores.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-6">
@@ -22,7 +22,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Preprocessing</span>
-                  <span className="text-on-surface-variant">90%</span>
+                  <span className="text-on-surface-variant">Frequent</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[90%]"></div>
@@ -31,7 +31,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>ML</span>
-                  <span className="text-on-surface-variant">60%</span>
+                  <span className="text-on-surface-variant">Regular</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[60%]"></div>
@@ -40,7 +40,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>DL</span>
-                  <span className="text-on-surface-variant">40%</span>
+                  <span className="text-on-surface-variant">Working Knowledge</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[40%]"></div>
@@ -49,7 +49,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Neural Networks</span>
-                  <span className="text-on-surface-variant">40%</span>
+                  <span className="text-on-surface-variant">Working Knowledge</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[40%]"></div>
@@ -58,7 +58,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Agents &amp; LLMs</span>
-                  <span className="text-on-surface-variant">80%</span>
+                  <span className="text-on-surface-variant">Active Use</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[80%]"></div>
@@ -77,7 +77,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Backend</span>
-                  <span className="text-on-surface-variant">95%</span>
+                  <span className="text-on-surface-variant">Daily</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[95%]"></div>
@@ -86,7 +86,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Frontend</span>
-                  <span className="text-on-surface-variant">92%</span>
+                  <span className="text-on-surface-variant">Daily</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[92%]"></div>
@@ -95,7 +95,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>DBMS</span>
-                  <span className="text-on-surface-variant">88%</span>
+                  <span className="text-on-surface-variant">Frequent</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[88%]"></div>
@@ -104,7 +104,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>LLD</span>
-                  <span className="text-on-surface-variant">85%</span>
+                  <span className="text-on-surface-variant">Frequent</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[85%]"></div>
@@ -113,7 +113,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>OOPs</span>
-                  <span className="text-on-surface-variant">90%</span>
+                  <span className="text-on-surface-variant">Frequent</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[90%]"></div>
@@ -122,7 +122,7 @@ export default function ToolkitSection() {
               <div className="space-y-1.5">
                 <div className="flex justify-between text-sm font-medium">
                   <span>Design and Analysis of Algorithms</span>
-                  <span className="text-on-surface-variant">80%</span>
+                  <span className="text-on-surface-variant">Ongoing Practice</span>
                 </div>
                 <div className="h-1.5 w-full bg-surface-variant rounded-full overflow-hidden">
                   <div className="h-full bg-primary w-[80%]"></div>
@@ -135,7 +135,7 @@ export default function ToolkitSection() {
           <div className="h-full rounded-xl bg-surface-container-lowest p-6 shadow-sm md:p-8">
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-primary">terminal</span>
-              <h3 className="font-headline text-lg font-bold md:text-xl">DevOps, DVA &amp; Finance</h3>
+              <h3 className="font-headline text-lg font-bold md:text-xl">DevOps, Analytics &amp; Finance</h3>
             </div>
             <div className="mt-6 space-y-5">
               <div>
@@ -148,7 +148,7 @@ export default function ToolkitSection() {
                 </ul>
               </div>
               <div className="border-t border-outline-variant/10 pt-4">
-                <p className="text-sm font-semibold text-on-surface mb-3">DVA</p>
+                <p className="text-sm font-semibold text-on-surface mb-3">Data Visualization</p>
                 <ul className="space-y-3">
                   <li className="flex items-center justify-between group">
                     <span className="text-on-surface-variant font-medium">Tableau</span>

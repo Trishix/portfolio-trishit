@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="w-full bg-surface py-24">
       <div className="max-w-7xl mx-auto px-8 text-center space-y-12">
         <h2 className="text-4xl md:text-5xl font-headline font-bold tracking-tight">
-          Let's build something <span className="text-primary italic">extraordinary</span>.
+          Let's build something <span className="text-primary italic">useful</span>.
         </h2>
         <div className="flex flex-wrap justify-center gap-8">
           <EmailPopupTrigger

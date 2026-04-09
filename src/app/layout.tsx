@@ -7,8 +7,8 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Trishit Swarnakar | Full Stack Developer & Agentic AI Developer',
-  description: 'Full Stack Developer & Agentic AI Developer portfolio showcasing projects, skills, and experience.',
+  title: 'Trishit Swarnakar | Full Stack & AI Developer',
+  description: 'Portfolio of Trishit Swarnakar with full-stack and AI projects, open-source work, and experience.',
   icons: {
     icon: [{ url: '/logo.png', type: 'image/png' }],
     shortcut: '/logo.png',
@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Trishit Swarnakar | Full Stack Developer & Agentic AI Developer',
-    description: 'Full Stack Developer & Agentic AI Developer portfolio showcasing projects, skills, and experience.',
+    title: 'Trishit Swarnakar | Full Stack & AI Developer',
+    description: 'Portfolio with full-stack and AI projects, open-source contributions, and experience.',
     images: [
       {
         url: '/logo.png',
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trishit Swarnakar | Full Stack Developer & Agentic AI Developer',
-    description: 'Full Stack Developer & Agentic AI Developer portfolio showcasing projects, skills, and experience.',
+    title: 'Trishit Swarnakar | Full Stack & AI Developer',
+    description: 'Portfolio with full-stack and AI projects, open-source contributions, and experience.',
     images: ['/logo.png'],
   },
 }
@@ -42,7 +42,7 @@ export default function RootLayout({
   return (
     <html className="scroll-smooth" lang="en">
       <head>
-        <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Inter:wght@400;500;600&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
         {children}

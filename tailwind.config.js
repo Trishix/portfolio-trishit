@@ -68,9 +68,9 @@ const config = {
         'full': '9999px',
       },
       fontFamily: {
-        'headline': ['Manrope', 'sans-serif'],
-        'body': ['Inter', 'sans-serif'],
-        'label': ['Inter', 'sans-serif'],
+        'headline': ['Source Serif 4', 'serif'],
+        'body': ['Source Serif 4', 'serif'],
+        'label': ['Source Serif 4', 'serif'],
       },
     },
   },

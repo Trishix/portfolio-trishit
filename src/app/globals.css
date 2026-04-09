@@ -6,6 +6,16 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  font-family: 'Source Serif 4', serif;
+}
+
+.font-headline,
+.font-body,
+.font-label {
+  font-family: 'Source Serif 4', serif !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

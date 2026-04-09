@@ -10,6 +10,10 @@ body {
   font-family: 'Source Serif 4', serif;
 }
 
+.section-heading {
+  color: #a93a00 !important;
+}
+
 .font-headline,
 .font-body,
 .font-label {

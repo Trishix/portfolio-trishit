@@ -1,11 +1,11 @@
 export default function ToolkitSection() {
   return (
-    <section className="scroll-mt-24 bg-surface-container-low px-4 py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="toolkit">
+    <section className="scroll-mt-24 bg-surface-container-low px-4 py-12 sm:py-14 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="toolkit">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end md:gap-8">
           <div className="max-w-xl">
             <span className="mb-3 block font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant">The Toolkit</span>
-            <h2 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">Skills &amp; Tools</h2>
+            <h2 className="section-heading font-headline text-3xl font-bold tracking-tight md:text-4xl">Skills &amp; Tools</h2>
           </div>
           <p className="max-w-sm text-sm leading-relaxed text-on-surface-variant">
             Tools I use in day-to-day work across AI, web development, data visualization, and finance coursework. Labels show usage frequency, not test scores.

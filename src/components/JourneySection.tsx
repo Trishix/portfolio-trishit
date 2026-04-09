@@ -5,13 +5,13 @@ import springdaleLogo from '../assets/springdale.jpeg';
 
 export default function JourneySection() {
   return (
-    <section className="scroll-mt-24 bg-surface px-4 py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="journey">
+    <section className="scroll-mt-24 bg-surface px-4 py-12 sm:py-14 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="journey">
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Journey */}
         <div className="lg:col-span-4">
           <span className="mb-3 block font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant">Professional &amp; Creative Path</span>
-          <h2 className="mb-8 font-headline text-3xl font-bold tracking-tight md:text-4xl">The Journey</h2>
+          <h2 className="section-heading mb-8 font-headline text-3xl font-bold tracking-tight md:text-4xl">The Journey</h2>
           <div className="space-y-7 md:space-y-8">
             <div>
               <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">HPAIR Delegate</h4>
@@ -69,7 +69,7 @@ export default function JourneySection() {
         {/* Right Column: Education */}
         <div className="lg:col-span-8">
           <span className="mb-3 block font-label text-xs uppercase tracking-[0.1em] text-on-surface-variant">Academic Foundation</span>
-          <h2 className="mb-8 font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">Education</h2>
+          <h2 className="section-heading mb-8 font-headline text-4xl font-bold tracking-tight text-primary md:text-5xl">Education</h2>
           <div className="space-y-5 md:space-y-6">
             {/* College */}
             <div className="rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-5 shadow-sm transition-shadow hover:shadow-md md:p-6">

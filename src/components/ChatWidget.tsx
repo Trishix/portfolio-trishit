@@ -228,7 +228,7 @@ export default function ChatWidget() {
 
       {showPromptBubble && !isOpen ? (
         <button
-          className="flex items-center gap-2 rounded-2xl border border-outline-variant/20 bg-surface px-3 py-2 text-sm font-medium text-on-surface shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition-transform hover:scale-[1.02]"
+          className="hidden items-center gap-2 rounded-2xl border border-outline-variant/20 bg-surface px-3 py-2 text-sm font-medium text-on-surface shadow-[0_10px_24px_rgba(0,0,0,0.18)] transition-transform hover:scale-[1.02] sm:flex"
           onClick={() => setIsOpen(true)}
           type="button"
         >
@@ -239,11 +239,11 @@ export default function ChatWidget() {
 
       <button
         aria-label="Open chat"
-        className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-signature-gradient text-on-primary shadow-lg transition-transform hover:scale-105"
+        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-signature-gradient text-on-primary shadow-lg transition-transform hover:scale-105 sm:h-14 sm:w-14"
         onClick={() => setIsOpen((prev) => !prev)}
         type="button"
       >
-        <span className="material-symbols-outlined text-2xl">chat</span>
+        <span className="material-symbols-outlined text-xl sm:text-2xl">chat</span>
       </button>
     </div>
   )

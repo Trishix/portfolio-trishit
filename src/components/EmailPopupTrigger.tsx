@@ -1,10 +1,10 @@
 'use client'
 
-import { FormEvent, useEffect, useId, useState } from 'react'
+import { FormEvent, ReactNode, useEffect, useId, useState } from 'react'
 import { createPortal } from 'react-dom'
 
 type EmailPopupTriggerProps = {
-  buttonLabel: string
+  buttonLabel: ReactNode
   buttonClassName: string
 }
 

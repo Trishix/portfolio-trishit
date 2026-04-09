@@ -1,6 +1,6 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 
 type ActivityType = 'linkedin' | 'instagram-post' | 'instagram-reel'
 
@@ -56,6 +56,8 @@ const activityEmbeds: ActivityEmbed[] = [
   },
 ]
 
+const loopedActivityEmbeds: ActivityEmbed[] = [...activityEmbeds, ...activityEmbeds]
+
 const reelIds = activityEmbeds
   .filter((item) => item.type === 'instagram-reel')
   .map((item) => item.id)
@@ -72,6 +74,81 @@ const appendParams = (url: string, params: Record<string, string>) => {
 
 export default function LinkedInActivitySection() {
   const [reelMuteState, setReelMuteState] = useState<Record<string, boolean>>(defaultReelMuteState)
+  const [isMobileViewport, setIsMobileViewport] = useState(false)
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
+  const [isAutoScrollStoppedByInteraction, setIsAutoScrollStoppedByInteraction] = useState(false)
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const shouldAutoScroll = !isAutoScrollPaused && (!isMobileViewport || !isAutoScrollStoppedByInteraction)
+
+  const normalizeLoopPosition = (track: HTMLDivElement) => {
+    const loopWidth = track.scrollWidth / 2
+    if (loopWidth <= 0) return track.scrollLeft
+
+    let normalized = track.scrollLeft
+    while (normalized >= loopWidth) normalized -= loopWidth
+    while (normalized < 0) normalized += loopWidth
+
+    if (Math.abs(track.scrollLeft - normalized) > 0.5) {
+      track.scrollLeft = normalized
+    }
+
+    return normalized
+  }
+
+  useEffect(() => {
+    const media = window.matchMedia('(max-width: 767px)')
+    const updateViewport = () => {
+      setIsMobileViewport(media.matches)
+    }
+
+    updateViewport()
+
+    if (typeof media.addEventListener === 'function') {
+      media.addEventListener('change', updateViewport)
+      return () => media.removeEventListener('change', updateViewport)
+    }
+
+    media.addListener(updateViewport)
+    return () => media.removeListener(updateViewport)
+  }, [])
+
+  useEffect(() => {
+    const track = trackRef.current
+    if (!track) return
+
+    let animationFrame = 0
+    let previousTime = performance.now()
+    let virtualScrollLeft = normalizeLoopPosition(track)
+    const speedPxPerMs = isMobileViewport ? 0.085 : 0.05
+
+    const tick = (currentTime: number) => {
+      const elapsed = currentTime - previousTime
+      previousTime = currentTime
+
+      if (shouldAutoScroll) {
+        const loopWidth = track.scrollWidth / 2
+
+        if (loopWidth > 0) {
+          // If the user scrolled while paused, sync animation cursor before continuing.
+          if (Math.abs(track.scrollLeft - virtualScrollLeft) > 2) {
+            virtualScrollLeft = normalizeLoopPosition(track)
+          }
+
+          virtualScrollLeft += elapsed * speedPxPerMs
+          if (virtualScrollLeft >= loopWidth) {
+            virtualScrollLeft -= loopWidth
+          }
+          track.scrollLeft = virtualScrollLeft
+        }
+      }
+
+      animationFrame = window.requestAnimationFrame(tick)
+    }
+
+    animationFrame = window.requestAnimationFrame(tick)
+
+    return () => window.cancelAnimationFrame(animationFrame)
+  }, [isMobileViewport, shouldAutoScroll])
 
   const embedSources = useMemo(() => {
     return activityEmbeds.reduce<Record<string, string>>((accumulator, item) => {
@@ -123,11 +200,17 @@ export default function LinkedInActivitySection() {
     return 'Reel'
   }
 
+  const stopAutoScrollOnMobileInteraction = () => {
+    if (isMobileViewport) {
+      setIsAutoScrollStoppedByInteraction(true)
+    }
+  }
+
   return (
-    <section className="scroll-mt-24 bg-surface-container-low py-16 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="activity">
+    <section className="scroll-mt-24 bg-surface-container-low py-12 sm:py-14 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="activity">
       <div className="mx-auto max-w-7xl px-5 md:px-8">
         <div className="mb-8 flex items-end justify-between gap-4">
-          <h2 className="font-headline text-3xl font-extrabold tracking-tight text-on-surface md:text-4xl">Activity</h2>
+          <h2 className="section-heading font-headline text-3xl font-extrabold tracking-tight text-on-surface md:text-4xl">Activity</h2>
           <a
             className="text-xs font-semibold uppercase tracking-[0.08em] text-primary transition-opacity hover:opacity-80"
             href="https://www.linkedin.com/in/trishit-swarnakar/"
@@ -142,15 +225,25 @@ export default function LinkedInActivitySection() {
           <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-gradient-to-r from-surface-container-low to-transparent" />
           <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-gradient-to-l from-surface-container-low to-transparent" />
 
-          <div className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-            {activityEmbeds.map((item) => {
+          <div
+            className={`flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+              shouldAutoScroll ? 'snap-none' : 'snap-x snap-mandatory'
+            }`}
+            onClick={stopAutoScrollOnMobileInteraction}
+            onMouseEnter={() => setIsAutoScrollPaused(true)}
+            onMouseLeave={() => setIsAutoScrollPaused(false)}
+            onPointerDown={stopAutoScrollOnMobileInteraction}
+            onTouchStart={stopAutoScrollOnMobileInteraction}
+            ref={trackRef}
+          >
+            {loopedActivityEmbeds.map((item, index) => {
               const isReel = item.type === 'instagram-reel'
               const isMuted = reelMuteState[item.id] ?? true
 
               return (
                 <article
                   className={`${getCardWidthClass(item.type)} shrink-0 snap-start rounded-2xl border border-outline-variant/20 bg-surface p-3 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.5)] md:p-3.5`}
-                  key={item.id}
+                  key={`${item.id}-${index}`}
                 >
                   <div className="mb-2 flex items-center justify-between gap-3">
                     <span className="rounded-full bg-surface-container-highest px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-on-surface-variant">

@@ -2,22 +2,22 @@ import EmailPopupTrigger from '@/components/EmailPopupTrigger'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-surface py-24">
-      <div className="max-w-7xl mx-auto px-8 text-center space-y-12">
-        <h2 className="text-4xl md:text-5xl font-headline font-bold tracking-tight">
+    <footer className="w-full bg-surface py-12 sm:py-16 md:py-24">
+      <div className="mx-auto max-w-7xl px-4 text-center space-y-8 sm:space-y-10 sm:px-6 md:space-y-12 md:px-8">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight">
           Let's build something <span className="text-primary italic">useful</span>.
         </h2>
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-6 md:gap-8">
           <EmailPopupTrigger
-            buttonClassName="bg-signature-gradient rounded-lg px-8 py-4 font-headline text-base font-bold text-on-primary shadow-lg transition-all hover:opacity-90"
+            buttonClassName="w-full rounded-lg bg-signature-gradient px-6 py-3.5 font-headline text-sm font-bold text-on-primary shadow-lg transition-all hover:opacity-90 sm:w-auto sm:px-8 sm:py-4 sm:text-base"
             buttonLabel="Send an Email"
           />
-          <a className="rounded-lg border border-outline-variant/30 px-8 py-4 font-headline text-base font-bold text-on-surface transition-all hover:bg-surface-container-low" href="https://linkedin.com/in/trishit-swarnakar-b7350828a" target="_blank" rel="noreferrer noopener">
+          <a className="w-full rounded-lg border border-outline-variant/30 px-6 py-3.5 font-headline text-sm font-bold text-on-surface transition-all hover:bg-surface-container-low sm:w-auto sm:px-8 sm:py-4 sm:text-base" href="https://linkedin.com/in/trishit-swarnakar-b7350828a" target="_blank" rel="noreferrer noopener">
             Connect on LinkedIn
           </a>
         </div>
-        <div className="pt-16 border-t border-outline-variant/10">
-          <div className="mx-auto flex flex-wrap items-center justify-center gap-x-12 gap-y-4 font-body text-xs uppercase tracking-[0.1em]">
+        <div className="border-t border-outline-variant/10 pt-10 sm:pt-12 md:pt-16">
+          <div className="mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-4 font-body text-xs uppercase tracking-[0.1em] sm:gap-x-12">
             <a className="text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">
               GitHub
             </a>

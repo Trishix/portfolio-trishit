@@ -70,8 +70,8 @@ export default function TopNavBar() {
 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-outline-variant/10 bg-surface/80 backdrop-blur-xl">
-      <div className="flex justify-between items-center max-w-7xl mx-auto px-8 h-20">
-        <a className="font-headline text-2xl font-bold tracking-tighter text-on-surface" href="#home" onClick={handleSectionScroll('home')}>
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:h-20 sm:px-6 md:px-8">
+        <a className="font-headline text-xl font-bold tracking-tighter text-on-surface sm:text-2xl" href="#home" onClick={handleSectionScroll('home')}>
           TRISHIT
         </a>
         <div className="hidden items-center space-x-10 font-headline font-bold tracking-tight md:flex">
@@ -87,8 +87,13 @@ export default function TopNavBar() {
           ))}
         </div>
         <EmailPopupTrigger
-          buttonClassName="bg-signature-gradient rounded-lg px-6 py-2.5 font-headline text-sm font-bold tracking-tight text-on-primary transition-transform active:scale-95"
-          buttonLabel="Get in Touch"
+          buttonClassName="whitespace-nowrap rounded-lg bg-signature-gradient px-3 py-1.5 text-[11px] font-headline font-bold tracking-tight text-on-primary transition-transform active:scale-95 sm:px-6 sm:py-2.5 sm:text-sm"
+          buttonLabel={(
+            <>
+              <span className="sm:hidden">Contact</span>
+              <span className="hidden sm:inline">Get in Touch</span>
+            </>
+          )}
         />
       </div>
     </nav>

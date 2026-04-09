@@ -61,9 +61,6 @@ export default function JourneySection() {
                   <h4 className="font-headline text-xl font-extrabold md:text-2xl">B.Tech in CSAI</h4>
                   <p className="mt-2 text-sm font-bold text-on-surface-variant md:text-base">Newton School of Technology, Rishihood University</p>
                   <p className="mt-1 text-sm font-medium text-primary">Current Program</p>
-                  <p className="mt-3 text-sm font-semibold leading-relaxed text-green-600 md:text-base">
-                    Currently Pursuing
-                  </p>
                 </div>
               </div>
             </div>

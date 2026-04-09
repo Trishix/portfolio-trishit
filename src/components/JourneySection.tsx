@@ -23,24 +23,44 @@ export default function JourneySection() {
 
             <div>
               <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">Musician</h4>
-              <p className="mb-2 text-sm font-medium text-on-surface-variant">Extensive Practice</p>
+              <p className="mb-2 text-sm font-medium text-on-surface-variant">Guitarist</p>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                Classical training that informs a disciplined approach to creative problem-solving and rhythm.
+                More than 10+ years of experience as a lead guitarist
               </p>
             </div>
 
             <div>
-              <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">Former VP of Robotics Club</h4>
-              <p className="mb-2 text-sm font-medium text-on-surface-variant">Institutional Leadership</p>
+              <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">
+                Former VP of{' '}
+                <a
+                  className="text-primary transition-colors hover:underline"
+                  href="https://www.linkedin.com/company/newtonbotics/"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  Robotics Club
+                </a>
+              </h4>
+              <p className="mb-2 text-sm font-medium text-on-surface-variant">Newton School of Technology - RU</p>
               <p className="text-sm leading-relaxed text-on-surface-variant">
                 Managed complex events and technical workshops while fostering a community of innovators.
               </p>
             </div>
 
             <div>
-              <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">Former Co-founder</h4>
+              <h4 className="mb-1 font-headline text-lg font-bold md:text-xl">
+                Tech Team member at{' '}
+                <a
+                  className="text-primary transition-colors hover:underline"
+                  href="https://sastclub.tech"
+                  rel="noreferrer noopener"
+                  target="_blank"
+                >
+                  sastclub.tech
+                </a>
+              </h4>
               <p className="text-sm leading-relaxed text-on-surface-variant">
-                Led strategic growth and brand identity for a collaborative venture focused on modern digital solutions.
+                Building and supporting technical initiatives, product experiences, and community-facing solutions.
               </p>
             </div>
           </div>

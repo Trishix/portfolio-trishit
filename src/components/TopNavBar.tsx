@@ -53,7 +53,8 @@ export default function TopNavBar() {
     const section = document.getElementById(sectionId)
     if (!section) return
 
-    section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const shouldReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    section.scrollIntoView({ behavior: shouldReduceMotion ? 'auto' : 'smooth', block: 'start' })
     window.history.replaceState(null, '', `#${sectionId}`)
     setActiveSection(sectionId)
   }

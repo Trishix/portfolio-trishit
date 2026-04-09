@@ -11,7 +11,7 @@ type ChatMessage = {
   content: string
 }
 
-const starterPrompt = 'Tell me about your GitHub projects.'
+const starterPrompt = 'Tell me about yourself'
 
 const initialMessages: ChatMessage[] = [
   {

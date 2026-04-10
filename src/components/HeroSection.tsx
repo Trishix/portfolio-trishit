@@ -1,7 +1,5 @@
 import Image from 'next/image'
-
-const portraitSrc =
-  'https://lh3.googleusercontent.com/aida/ADBb0uhUhjtJeKYns4SUxWyztjSNQbKvscNSk8WHMPA1zC5SHdesGnwyNkH7_NActvZscE1t-gzHjZSFwTlybhuiKey2bdFVWYzpeTkj_m6gLZp2ljLLa53ThOvEisMYYHOpUnhAOEWkMtm1x1uZwCq_o2juZs6xxteevcr0YCEPjiN_AJbJjRitZGRqXxyapNbCa1Uc7Qm5hJRilCImMQMqwbQrxdxoEfKr4VZ6NNMnyUbX9Y_ljW77DJcRiAwI7aEvKXPhpN2HRL4gZYA'
+import portraitImage from '@/assets/trishitimage.jpeg'
 
 export default function HeroSection() {
   return (
@@ -26,8 +24,11 @@ export default function HeroSection() {
                 <div className="relative aspect-[4/5] w-full overflow-hidden bg-surface-container-highest">
                   <Image
                     alt="Trishit Swarnakar Portrait"
-                    src={portraitSrc}
+                    src={portraitImage}
                     fill
+                    sizes="(max-width: 420px) 248px, (max-width: 767px) 268px, 40vw"
+                    quality={72}
+                    placeholder="blur"
                     className="h-full w-full object-cover object-center grayscale transition-all duration-700"
                   />
                 </div>
@@ -144,8 +145,11 @@ export default function HeroSection() {
           <div className="relative aspect-square w-full overflow-hidden rounded-lg bg-surface-container-highest shadow-2xl md:aspect-[4/5]">
             <Image
               alt="Trishit Swarnakar Portrait"
-              src={portraitSrc}
+              src={portraitImage}
               fill
+              sizes="(max-width: 767px) 100vw, (max-width: 1280px) 38vw, 480px"
+              quality={72}
+              placeholder="blur"
               className="h-full w-full object-cover object-center grayscale transition-all duration-700 hover:grayscale-0"
             />
           </div>

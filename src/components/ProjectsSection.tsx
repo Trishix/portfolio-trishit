@@ -33,6 +33,8 @@ export default function ProjectsSection() {
                 alt="UBOT Interface"
                 src={ubotImg}
                 fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                placeholder="blur"
                 className="w-full h-full object-cover transition-all duration-700"
               />
             </a>
@@ -75,6 +77,8 @@ export default function ProjectsSection() {
                 alt="STRINGZ Platform"
                 src={stringzImg}
                 fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                placeholder="blur"
                 className="w-full h-full object-cover transition-all duration-700"
               />
             </a>
@@ -127,6 +131,8 @@ export default function ProjectsSection() {
                   alt="Responsively App"
                   src={responsivelyImg}
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                  placeholder="blur"
                   className="w-full h-full object-cover transition-all duration-700"
                 />
               </a>
@@ -152,6 +158,8 @@ export default function ProjectsSection() {
                   alt="Lamatic AI"
                   src={lamaticImg}
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                  placeholder="blur"
                   className="w-full h-full object-cover transition-all duration-700"
                 />
               </a>
@@ -188,6 +196,8 @@ export default function ProjectsSection() {
                   alt="SAST (Society of Automation and Software Technology)"
                   src={sastImg}
                   fill
+                  sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                  placeholder="blur"
                   className="w-full h-full object-cover transition-all duration-700"
                 />
               </a>

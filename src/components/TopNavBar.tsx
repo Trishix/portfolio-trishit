@@ -133,41 +133,25 @@ export default function TopNavBar() {
 
       {isMobileMenuOpen ? (
         <div className="border-t border-outline-variant/10 bg-surface/95 md:hidden" id="mobile-nav-menu">
-          <div className="mx-auto max-w-7xl px-3 pb-3 pt-2">
-            <div className="rounded-2xl border border-outline-variant/20 bg-surface-container-low/65 p-2 shadow-[0_8px_22px_-18px_rgba(0,0,0,0.45)]">
-              {navItems.map((item) => {
-                const isActive = activeSection === item.id
+          <div className="mx-auto max-w-7xl px-3 py-2">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id
 
-                return (
-                  <a
-                    className={`group flex items-center justify-between rounded-xl px-3.5 py-3 font-headline text-sm font-bold tracking-tight transition-all duration-200 ${
-                      isActive
-                        ? 'bg-primary/10 text-primary shadow-[inset_0_0_0_1px_rgba(169,58,0,0.28)]'
-                        : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'
-                    }`}
-                    href={`#${item.id}`}
-                    key={`mobile-${item.id}`}
-                    onClick={handleMobileSectionScroll(item.id)}
-                  >
-                    <span className="flex items-center gap-2.5">
-                      <span
-                        className={`h-1.5 w-1.5 rounded-full transition-colors ${
-                          isActive ? 'bg-primary' : 'bg-outline-variant/40 group-hover:bg-primary/70'
-                        }`}
-                      />
-                      {item.label}
-                    </span>
-                    <span
-                      className={`material-symbols-outlined text-base leading-none transition-all duration-200 ${
-                        isActive ? 'translate-x-0 text-primary' : '-translate-x-0.5 text-on-surface-variant/70 group-hover:translate-x-0 group-hover:text-primary'
-                      }`}
-                    >
-                      arrow_forward
-                    </span>
-                  </a>
-                )
-              })}
-            </div>
+              return (
+                <a
+                  className={`block border-l-2 px-3 py-3 font-headline text-sm font-semibold tracking-tight transition-colors ${
+                    isActive
+                      ? 'border-primary text-primary'
+                      : 'border-transparent text-on-surface-variant hover:text-primary'
+                  }`}
+                  href={`#${item.id}`}
+                  key={`mobile-${item.id}`}
+                  onClick={handleMobileSectionScroll(item.id)}
+                >
+                  {item.label}
+                </a>
+              )
+            })}
           </div>
         </div>
       ) : null}

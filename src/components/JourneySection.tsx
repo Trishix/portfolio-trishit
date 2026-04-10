@@ -75,7 +75,7 @@ export default function JourneySection() {
             <div className="rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-5 shadow-sm transition-shadow hover:shadow-md md:p-6">
               <div className="flex items-start gap-4 md:gap-6">
                 <div className="relative hidden h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-surface-container sm:block md:h-16 md:w-16">
-                  <Image src={nstLogo} alt="Newton School of Technology" fill className="object-cover" />
+                  <Image src={nstLogo} alt="Newton School of Technology" fill sizes="(max-width: 767px) 56px, 64px" placeholder="blur" className="object-cover" />
                 </div>
                 <div>
                   <h4 className="font-headline text-xl font-extrabold md:text-2xl">B.Tech in CSAI</h4>
@@ -89,7 +89,7 @@ export default function JourneySection() {
             <div className="rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-5 shadow-sm transition-shadow hover:shadow-md md:p-6">
               <div className="flex items-start gap-4 md:gap-6">
                 <div className="relative hidden h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-surface-container sm:block md:h-16 md:w-16">
-                  <Image src={kcmsLogo} alt="Kalyani Central Model School" fill className="object-cover" />
+                  <Image src={kcmsLogo} alt="Kalyani Central Model School" fill sizes="(max-width: 767px) 56px, 64px" placeholder="blur" className="object-cover" />
                 </div>
                 <div>
                   <h4 className="font-headline text-xl font-extrabold md:text-2xl">Higher Secondary</h4>
@@ -109,7 +109,7 @@ export default function JourneySection() {
             <div className="rounded-2xl border border-outline-variant/10 bg-surface-container-lowest p-5 shadow-sm transition-shadow hover:shadow-md md:p-6">
               <div className="flex items-start gap-4 md:gap-6">
                 <div className="relative hidden h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-surface-container sm:block md:h-16 md:w-16">
-                  <Image src={springdaleLogo} alt="Springdale High School" fill className="object-cover" />
+                  <Image src={springdaleLogo} alt="Springdale High School" fill sizes="(max-width: 767px) 56px, 64px" placeholder="blur" className="object-cover" />
                 </div>
                 <div>
                   <h4 className="font-headline text-xl font-extrabold md:text-2xl">Secondary Education</h4>

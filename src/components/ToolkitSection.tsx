@@ -20,7 +20,7 @@ export default function ToolkitSection() {
             </div>
             <div className="mt-6 space-y-4 md:space-y-5">
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Preprocessing</span>
                   <span className="text-on-surface-variant">Frequent</span>
                 </div>
@@ -29,7 +29,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>ML</span>
                   <span className="text-on-surface-variant">Regular</span>
                 </div>
@@ -38,7 +38,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>DL</span>
                   <span className="text-on-surface-variant">Working Knowledge</span>
                 </div>
@@ -47,7 +47,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Neural Networks</span>
                   <span className="text-on-surface-variant">Working Knowledge</span>
                 </div>
@@ -56,7 +56,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Agents &amp; LLMs</span>
                   <span className="text-on-surface-variant">Active Use</span>
                 </div>
@@ -75,7 +75,7 @@ export default function ToolkitSection() {
             </div>
             <div className="mt-6 space-y-4 md:space-y-5">
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Backend</span>
                   <span className="text-on-surface-variant">Daily</span>
                 </div>
@@ -84,7 +84,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Frontend</span>
                   <span className="text-on-surface-variant">Daily</span>
                 </div>
@@ -93,7 +93,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>DBMS</span>
                   <span className="text-on-surface-variant">Frequent</span>
                 </div>
@@ -102,7 +102,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>LLD</span>
                   <span className="text-on-surface-variant">Frequent</span>
                 </div>
@@ -111,7 +111,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>OOPs</span>
                   <span className="text-on-surface-variant">Frequent</span>
                 </div>
@@ -120,7 +120,7 @@ export default function ToolkitSection() {
                 </div>
               </div>
               <div className="space-y-1.5">
-                <div className="flex justify-between text-sm font-medium">
+                <div className="flex justify-between gap-2 text-sm font-medium max-[420px]:flex-col max-[420px]:items-start">
                   <span>Design and Analysis of Algorithms</span>
                   <span className="text-on-surface-variant">Ongoing Practice</span>
                 </div>
@@ -141,7 +141,7 @@ export default function ToolkitSection() {
               <div>
                 <p className="text-sm font-semibold text-on-surface mb-3">DevOps</p>
                 <ul className="space-y-3">
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">GitHub Actions</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>
@@ -150,15 +150,15 @@ export default function ToolkitSection() {
               <div className="border-t border-outline-variant/10 pt-4">
                 <p className="text-sm font-semibold text-on-surface mb-3">Data Visualization</p>
                 <ul className="space-y-3">
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">Tableau</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">Excel Dashboards</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">Pivot Tables</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>
@@ -167,11 +167,11 @@ export default function ToolkitSection() {
               <div className="border-t border-outline-variant/10 pt-4">
                 <p className="text-sm font-semibold text-on-surface mb-3">Finance</p>
                 <ul className="space-y-3">
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">Essentials of Finance</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>
-                  <li className="flex items-center justify-between group">
+                  <li className="group flex items-start justify-between gap-2">
                     <span className="text-on-surface-variant font-medium">Strategic Financial Management</span>
                     <span className="h-2 w-2 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   </li>

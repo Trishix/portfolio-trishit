@@ -11,7 +11,7 @@ export default function ProjectsSection() {
       <div className="max-w-7xl mx-auto">
         <div className="mb-14 sm:mb-16 md:mb-24">
           <span className="text-on-surface-variant uppercase tracking-[0.1em] text-xs font-semibold mb-4 block">Featured Projects</span>
-          <h2 className="section-heading text-4xl sm:text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-none mb-8">
+          <h2 className="section-heading text-[clamp(2.2rem,12vw,4.5rem)] sm:text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-none mb-8">
             Latest <br /> <span className="text-primary italic">Developments</span>
           </h2>
           <p className="max-w-2xl text-base sm:text-lg md:text-xl text-on-surface-variant leading-relaxed">
@@ -49,11 +49,11 @@ export default function ProjectsSection() {
                 A tool that turns portfolio content into an embeddable chatbot. It answers visitor questions using your projects and experience data.
               </p>
               <ul className="space-y-2">
-                <li className="flex items-center text-sm text-on-surface">
+                <li className="flex items-start text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
                   Semantic search retrieves relevant context before each answer
                 </li>
-                <li className="flex items-center text-sm text-on-surface">
+                <li className="flex items-start text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
                   Vector knowledge base synced with portfolio updates and GitHub repositories
                 </li>
@@ -91,11 +91,11 @@ export default function ProjectsSection() {
                 A full-stack learning platform with video streaming, payment checkout, and CRUD workflows for course content.
               </p>
               <ul className="space-y-2">
-                <li className="flex items-center text-sm text-on-surface">
+                <li className="flex items-start text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
                   Real-time bi-directional events over WebSockets
                 </li>
-                <li className="flex items-center text-sm text-on-surface">
+                <li className="flex items-start text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
                   Containerized deployment and local orchestration with Docker
                 </li>

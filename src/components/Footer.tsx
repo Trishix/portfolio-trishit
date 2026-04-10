@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="w-full bg-surface py-12 sm:py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-4 text-center space-y-8 sm:space-y-10 sm:px-6 md:space-y-12 md:px-8">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-headline font-bold tracking-tight">
+        <h2 className="text-[clamp(2rem,9vw,3rem)] font-headline font-bold tracking-tight">
           Let's build something <span className="text-primary italic">useful</span>.
         </h2>
         <div className="flex flex-col justify-center gap-4 sm:flex-row sm:flex-wrap sm:gap-6 md:gap-8">

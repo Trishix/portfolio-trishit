@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <TopNavBar />
-      <main>
+      <main className="overflow-x-hidden">
         <HeroSection />
         <DisciplinesSection />
         <ProjectsSection />

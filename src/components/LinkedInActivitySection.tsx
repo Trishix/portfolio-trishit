@@ -183,15 +183,15 @@ export default function LinkedInActivitySection() {
   }
 
   const getCardWidthClass = (type: ActivityType) => {
-    if (type === 'linkedin') return 'w-[min(86vw,22rem)]'
-    if (type === 'instagram-post') return 'w-[min(74vw,19rem)]'
-    return 'w-[min(68vw,17rem)]'
+    if (type === 'linkedin') return 'w-[min(84vw,22rem)] max-[360px]:w-[min(88vw,18.5rem)]'
+    if (type === 'instagram-post') return 'w-[min(72vw,19rem)] max-[360px]:w-[min(78vw,15.5rem)]'
+    return 'w-[min(66vw,17rem)] max-[360px]:w-[min(72vw,14rem)]'
   }
 
   const getFrameHeightClass = (type: ActivityType) => {
-    if (type === 'linkedin') return 'h-[25rem]'
-    if (type === 'instagram-post') return 'h-[27rem]'
-    return 'h-[31rem]'
+    if (type === 'linkedin') return 'h-[23rem] sm:h-[25rem]'
+    if (type === 'instagram-post') return 'h-[24rem] sm:h-[27rem]'
+    return 'h-[28rem] sm:h-[31rem]'
   }
 
   const getTypeLabel = (type: ActivityType) => {

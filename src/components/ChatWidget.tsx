@@ -162,9 +162,9 @@ export default function ChatWidget() {
   }
 
   return (
-    <div className="fixed z-[120] flex flex-col items-end gap-3 right-[max(1rem,env(safe-area-inset-right))] bottom-[max(1rem,env(safe-area-inset-bottom))] md:right-5 md:bottom-5">
+    <div className="fixed z-[120] flex flex-col items-end gap-3 right-[max(0.75rem,env(safe-area-inset-right))] bottom-[max(0.75rem,env(safe-area-inset-bottom))] md:right-5 md:bottom-5">
       {isOpen ? (
-        <div className="w-[min(92vw,24rem)] rounded-2xl border border-outline-variant/20 bg-surface-container-lowest shadow-[0_14px_40px_rgba(0,0,0,0.25)]">
+        <div className="max-h-[78vh] w-[min(92vw,24rem)] overflow-hidden rounded-2xl border border-outline-variant/20 bg-surface-container-lowest shadow-[0_14px_40px_rgba(0,0,0,0.25)]">
           <div className="flex items-center justify-between border-b border-outline-variant/10 px-4 py-4">
             <h3 className="font-headline text-sm font-bold text-on-surface">Chat with Trishit</h3>
             <button
@@ -181,7 +181,7 @@ export default function ChatWidget() {
           <div className="border-b border-outline-variant/10 px-4 pt-3 pb-2">
             <p className="text-[11px] font-medium text-on-surface-variant">Ask about projects, skills, and experience.</p>
           </div>
-          <div className="max-h-72 space-y-3 overflow-y-auto px-4 pt-5 pb-3">
+          <div className="max-h-[min(45vh,18rem)] space-y-3 overflow-y-auto px-4 pt-5 pb-3">
             {messages.map((message, index) => (
               <div
                 className={
@@ -239,7 +239,7 @@ export default function ChatWidget() {
 
       <button
         aria-label="Open chat"
-        className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-signature-gradient text-on-primary shadow-lg transition-transform hover:scale-105 sm:h-14 sm:w-14"
+        className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-signature-gradient text-on-primary shadow-lg transition-transform hover:scale-105 min-[360px]:h-12 min-[360px]:w-12 sm:h-14 sm:w-14"
         onClick={() => setIsOpen((prev) => !prev)}
         type="button"
       >

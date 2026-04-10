@@ -42,7 +42,7 @@ export default function ProjectsSection() {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center space-x-2">
                   <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">AI Agent</span>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2025</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2026</span>
                 </div>
                 <span className="text-[10px] font-bold text-on-surface-variant">AI ASSISTANT</span>
               </div>
@@ -86,7 +86,7 @@ export default function ProjectsSection() {
               <div className="flex flex-wrap items-center justify-between gap-2">
                 <div className="flex items-center space-x-2">
                   <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">Learning Platform</span>
-                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2024</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2025</span>
                 </div>
                 <span className="text-[10px] font-bold text-on-surface-variant">FULL-STACK</span>
               </div>

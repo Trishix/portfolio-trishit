@@ -2,8 +2,8 @@ import EmailPopupTrigger from '@/components/EmailPopupTrigger'
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-surface py-12 sm:py-16 md:py-24">
-      <div className="mx-auto max-w-7xl px-4 text-center space-y-8 sm:space-y-10 sm:px-6 md:space-y-12 md:px-8">
+    <footer className="w-full bg-surface py-12 sm:py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-4 text-center space-y-8 sm:space-y-9 sm:px-6 md:space-y-10 md:px-8">
         <h2 className="text-[clamp(2rem,9vw,3rem)] font-headline font-bold tracking-tight">
           Let's build something <span className="text-primary italic">useful</span>.
         </h2>
@@ -16,7 +16,7 @@ export default function Footer() {
             Connect on LinkedIn
           </a>
         </div>
-        <div className="border-t border-outline-variant/10 pt-10 sm:pt-12 md:pt-16">
+        <div className="border-t border-outline-variant/10 pt-8 sm:pt-10 md:pt-12">
           <div className="mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-4 font-body text-xs uppercase tracking-[0.1em] sm:gap-x-12">
             <a className="text-on-surface-variant hover:text-primary transition-colors" href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">
               GitHub

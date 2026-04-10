@@ -1,6 +1,6 @@
 export default function ToolkitSection() {
   return (
-    <section className="scroll-mt-24 bg-surface-container-low px-4 py-12 sm:py-14 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="toolkit">
+    <section className="scroll-mt-24 bg-surface-container-low px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="toolkit">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mb-10 flex flex-col justify-between gap-6 md:mb-12 md:flex-row md:items-end md:gap-8">
           <div className="max-w-xl">

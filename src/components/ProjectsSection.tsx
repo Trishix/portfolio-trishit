@@ -7,9 +7,9 @@ import sastImg from '@/assets/sast.png'
 
 export default function ProjectsSection() {
   return (
-    <section className="scroll-mt-24 bg-surface px-4 py-14 sm:px-6 sm:py-16 md:px-8 md:py-28" id="projects">
+    <section className="scroll-mt-24 bg-surface px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20" id="projects">
       <div className="max-w-7xl mx-auto">
-        <div className="mb-14 sm:mb-16 md:mb-24">
+        <div className="mb-10 sm:mb-12 md:mb-14">
           <span className="text-on-surface-variant uppercase tracking-[0.1em] text-xs font-semibold mb-4 block">Featured Projects</span>
           <h2 className="section-heading text-[clamp(2.2rem,12vw,4.5rem)] sm:text-5xl md:text-7xl font-headline font-extrabold tracking-tighter text-on-surface leading-none mb-8">
             Latest <br /> <span className="text-primary italic">Developments</span>
@@ -18,7 +18,7 @@ export default function ProjectsSection() {
             Pushing the boundaries of intelligent interfaces and real-time social connectivity through robust architectural patterns.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-y-14 gap-x-8 sm:gap-y-16 md:grid-cols-2 md:gap-y-20 md:gap-x-12 lg:gap-x-16">
+        <div className="grid grid-cols-1 gap-y-12 gap-x-8 sm:gap-y-14 md:grid-cols-2 md:gap-y-16 md:gap-x-12 lg:gap-x-16">
           {/* UBOT */}
           <div className="group flex flex-col">
             <a
@@ -105,14 +105,14 @@ export default function ProjectsSection() {
         </div>
 
         {/* Open Source Contributions */}
-        <div className="mt-20 md:mt-28 lg:mt-32">
-          <div className="mb-10 md:mb-16">
+        <div className="mt-16 sm:mt-20 md:mt-24">
+          <div className="mb-8 sm:mb-10 md:mb-12">
             <span className="text-on-surface-variant uppercase tracking-[0.1em] text-xs font-semibold mb-4 block">Open Source</span>
             <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">
               Contributions
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-y-14 gap-x-8 sm:gap-y-16 md:grid-cols-2 md:gap-y-20 md:gap-x-12 lg:gap-x-16">
+          <div className="grid grid-cols-1 gap-y-12 gap-x-8 sm:gap-y-14 md:grid-cols-2 md:gap-y-16 md:gap-x-12 lg:gap-x-16">
             {/* Responsively */}
             <div className="group flex flex-col">
               <a
@@ -166,14 +166,14 @@ export default function ProjectsSection() {
         </div>
 
         {/* Organizations */}
-        <div className="mt-20 md:mt-28 lg:mt-32">
-          <div className="mb-10 md:mb-16">
+        <div className="mt-16 sm:mt-20 md:mt-24">
+          <div className="mb-8 sm:mb-10 md:mb-12">
             <span className="text-on-surface-variant uppercase tracking-[0.1em] text-xs font-semibold mb-4 block">Communities & Groups</span>
             <h2 className="section-heading text-4xl sm:text-5xl md:text-6xl font-headline font-extrabold tracking-tight text-on-surface">
               Organizations
             </h2>
           </div>
-          <div className="grid grid-cols-1 gap-y-14 gap-x-8 sm:gap-y-16 md:grid-cols-2 md:gap-y-20 md:gap-x-12 lg:gap-x-16">
+          <div className="grid grid-cols-1 gap-y-12 gap-x-8 sm:gap-y-14 md:grid-cols-2 md:gap-y-16 md:gap-x-12 lg:gap-x-16">
             {/* SAST */}
             <div className="group flex flex-col">
               <a

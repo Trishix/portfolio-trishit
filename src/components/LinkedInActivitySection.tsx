@@ -207,9 +207,9 @@ export default function LinkedInActivitySection() {
   }
 
   return (
-    <section className="scroll-mt-24 bg-surface-container-low py-12 sm:py-14 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="activity">
-      <div className="mx-auto max-w-7xl px-5 md:px-8">
-        <div className="mb-8 flex items-end justify-between gap-4">
+    <section className="scroll-mt-24 bg-surface-container-low px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="activity">
+      <div className="mx-auto w-full max-w-7xl">
+        <div className="mb-8 flex items-end justify-between gap-4 sm:mb-10 md:mb-12">
           <h2 className="section-heading font-headline text-3xl font-extrabold tracking-tight text-on-surface md:text-4xl">Activity</h2>
           <a
             className="text-xs font-semibold uppercase tracking-[0.08em] text-primary transition-opacity hover:opacity-80"

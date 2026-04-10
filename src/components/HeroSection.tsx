@@ -6,7 +6,7 @@ const portraitSrc =
 export default function HeroSection() {
   return (
     <section className="scroll-mt-24 min-h-[100svh] overflow-x-hidden bg-surface" id="home">
-      <div className="mx-auto max-w-7xl px-4 pt-20 pb-8 sm:px-6 sm:pt-24 sm:pb-12 md:flex md:min-h-screen md:items-center md:gap-20 md:px-8 md:pt-32 md:pb-24">
+      <div className="mx-auto max-w-7xl px-4 pt-16 pb-10 sm:px-6 sm:pt-20 sm:pb-14 md:flex md:min-h-screen md:items-center md:gap-20 md:px-8 md:pt-32 md:pb-24">
         <div className="flex min-h-[calc(100svh-8rem)] w-full flex-col justify-between md:hidden">
           <div className="relative space-y-5">
             <div
@@ -18,7 +18,7 @@ export default function HeroSection() {
               <div className="absolute bottom-4 -left-2 h-[5.25rem] w-[4.4rem] rounded-sm border border-outline-variant/25 bg-surface-container-low/25 max-[420px]:bottom-3 max-[420px]:h-[4.25rem] max-[420px]:w-[3.4rem] max-[360px]:h-[3.6rem] max-[360px]:w-[2.9rem]" />
             </div>
             <div className="relative z-10 space-y-3">
-              <div className="inline-flex max-w-full items-center gap-2 rounded-full border border-outline-variant/15 bg-surface-container-low px-4 py-2 max-[420px]:gap-1.5 max-[420px]:px-3 max-[420px]:py-1.5">
+              <div className="inline-flex max-w-full items-center gap-2 max-[420px]:gap-1.5">
                 <span className="material-symbols-outlined text-base leading-none text-primary">code</span>
                 <p className="font-label text-[11px] font-semibold uppercase tracking-[0.08em] text-on-surface max-[420px]:text-[10px] max-[360px]:tracking-[0.06em]">Full Stack &amp; AI Developer</p>
               </div>
@@ -73,9 +73,9 @@ export default function HeroSection() {
                 </a>
               </div>
             </div>
-            <h1 className="relative z-10 font-headline text-[clamp(2.5rem,14vw,3.1rem)] font-extrabold tracking-tighter leading-[0.95] text-on-background">
+            <h1 className="relative z-10 font-headline text-[clamp(2.2rem,13.6vw,3.15rem)] font-extrabold tracking-[-0.03em] leading-[0.92] text-on-background">
               Trishit<br />
-              <span className="inline-block pl-[3.8ch] text-primary-dim">Swarnakar</span>
+              <span className="inline-block pl-0 text-primary-dim min-[420px]:pl-[3.8ch]">Swarnakar</span>
             </h1>
             <a
               className="relative z-10 inline-flex w-full items-center justify-between gap-2 rounded-xl bg-signature-gradient px-5 py-3 text-left font-headline text-[clamp(1.1rem,5.5vw,1.5rem)] font-bold text-on-primary max-[420px]:px-4"
@@ -97,9 +97,9 @@ export default function HeroSection() {
             <span className="font-label text-xs font-semibold uppercase tracking-[0.1em] text-on-surface-variant">
               Full Stack &amp; AI Developer
             </span>
-            <h1 className="font-headline text-[4.85rem] font-extrabold leading-[1.05] tracking-tighter text-on-background lg:text-[5.6rem]">
+            <h1 className="font-headline text-[clamp(3.2rem,8.4vw,5.6rem)] font-extrabold leading-[0.98] tracking-tighter text-on-background">
               Trishit<br />
-              <span className="inline-block pl-8 text-primary-dim">Swarnakar</span>
+              <span className="inline-block pl-[2.35ch] text-primary-dim lg:pl-[2.45ch]">Swarnakar</span>
             </h1>
           </div>
 

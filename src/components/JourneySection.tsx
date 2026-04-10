@@ -5,7 +5,7 @@ import springdaleLogo from '../assets/springdale.jpeg';
 
 export default function JourneySection() {
   return (
-    <section className="scroll-mt-24 bg-surface px-4 py-12 sm:py-14 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="journey">
+    <section className="scroll-mt-24 bg-surface px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="journey">
       <div className="mx-auto w-full max-w-7xl">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
         {/* Left Column: Journey */}

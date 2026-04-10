@@ -24,7 +24,7 @@ const rightTechIcons = [
 
 export default function DisciplinesSection() {
   return (
-    <section className="relative scroll-mt-24 overflow-hidden bg-surface-container-low px-4 py-12 sm:py-14 md:px-8 md:py-20 lg:min-h-screen lg:py-0 lg:flex lg:items-center" id="disciplines">
+    <section className="relative scroll-mt-24 overflow-hidden bg-surface-container-low px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:py-0 lg:flex lg:items-center" id="disciplines">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
         <div className="absolute inset-y-0 left-0 w-20 xl:w-24">
           {leftTechIcons.map((stamp, index) => (
@@ -50,7 +50,7 @@ export default function DisciplinesSection() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
-        <div className="mb-8 md:mb-12">
+        <div className="mb-8 sm:mb-10 md:mb-12">
           <h2 className="section-heading font-headline text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">Core Disciplines</h2>
           <div className="h-1 w-12 bg-primary mt-4"></div>
         </div>

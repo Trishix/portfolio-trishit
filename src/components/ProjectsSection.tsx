@@ -4,6 +4,7 @@ import stringzImg from '@/assets/stringzthumb.png'
 import responsivelyImg from '@/assets/responsively.png'
 import lamaticImg from '@/assets/lamatic.png'
 import sastImg from '@/assets/sast.png'
+import devLiveImg from '@/assets/devliveproject.png'
 
 export default function ProjectsSection() {
   return (
@@ -102,6 +103,50 @@ export default function ProjectsSection() {
                 <li className="flex items-start text-sm text-on-surface">
                   <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
                   Containerized deployment and local orchestration with Docker
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* DEVLIVE */}
+          <div className="group flex flex-col">
+            <a
+              aria-label="Open DevLive project"
+              className="block aspect-video bg-surface-container-low rounded-xl overflow-hidden mb-8 transition-transform duration-500 group-hover:-translate-y-2 relative"
+              href="https://devliveproject.vercel.app/"
+              rel="noreferrer noopener"
+              target="_blank"
+              title="Open DevLive project"
+            >
+              <Image
+                alt="DevLive event streaming website"
+                src={devLiveImg}
+                fill
+                sizes="(max-width: 767px) 100vw, (max-width: 1279px) 48vw, 42vw"
+                placeholder="blur"
+                className="w-full h-full object-cover transition-all duration-700"
+              />
+            </a>
+            <div className="flex flex-col space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center space-x-2">
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-on-surface-variant px-2 py-1 bg-surface-container-highest rounded">Live Events</span>
+                  <span className="text-[10px] font-bold tracking-widest uppercase text-primary">2026</span>
+                </div>
+                <span className="text-[10px] font-bold text-on-surface-variant">FRONTEND</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-headline font-bold text-on-surface group-hover:text-primary transition-colors">DevLive</h3>
+              <p className="text-on-surface-variant text-base leading-relaxed">
+                Frontend for a live event streaming website with polished discovery, category filtering, and an immersive dark UI.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start text-sm text-on-surface">
+                  <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
+                  Responsive event browsing with live and upcoming tag-based navigation
+                </li>
+                <li className="flex items-start text-sm text-on-surface">
+                  <span className="material-symbols-outlined text-primary text-lg mr-2">check_circle</span>
+                  Fast frontend experience for streaming audiences using modern layout patterns
                 </li>
               </ul>
             </div>

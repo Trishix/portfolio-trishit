@@ -56,8 +56,6 @@ const activityEmbeds: ActivityEmbed[] = [
   },
 ]
 
-const loopedActivityEmbeds: ActivityEmbed[] = [...activityEmbeds, ...activityEmbeds]
-
 const reelIds = activityEmbeds
   .filter((item) => item.type === 'instagram-reel')
   .map((item) => item.id)
@@ -75,28 +73,15 @@ const appendParams = (url: string, params: Record<string, string>) => {
 export default function LinkedInActivitySection() {
   const [reelMuteState, setReelMuteState] = useState<Record<string, boolean>>(defaultReelMuteState)
   const [isMobileViewport, setIsMobileViewport] = useState(false)
+  const [isSectionVisible, setIsSectionVisible] = useState(false)
+  const [shouldLoadEmbeds, setShouldLoadEmbeds] = useState(false)
   const [isAutoScrollPaused, setIsAutoScrollPaused] = useState(false)
-  const [isAutoScrollStoppedByInteraction, setIsAutoScrollStoppedByInteraction] = useState(false)
+  const sectionRef = useRef<HTMLElement | null>(null)
   const trackRef = useRef<HTMLDivElement | null>(null)
-  const shouldAutoScroll = !isAutoScrollPaused && (!isMobileViewport || !isAutoScrollStoppedByInteraction)
-
-  const normalizeLoopPosition = (track: HTMLDivElement) => {
-    const loopWidth = track.scrollWidth / 2
-    if (loopWidth <= 0) return track.scrollLeft
-
-    let normalized = track.scrollLeft
-    while (normalized >= loopWidth) normalized -= loopWidth
-    while (normalized < 0) normalized += loopWidth
-
-    if (Math.abs(track.scrollLeft - normalized) > 0.5) {
-      track.scrollLeft = normalized
-    }
-
-    return normalized
-  }
+  const shouldAutoScroll = isSectionVisible && !isMobileViewport && !isAutoScrollPaused
 
   useEffect(() => {
-    const media = window.matchMedia('(max-width: 767px)')
+    const media = window.matchMedia('(max-width: 900px), (hover: none), (pointer: coarse)')
     const updateViewport = () => {
       setIsMobileViewport(media.matches)
     }
@@ -113,30 +98,65 @@ export default function LinkedInActivitySection() {
   }, [])
 
   useEffect(() => {
+    const section = sectionRef.current
+    if (!section || typeof IntersectionObserver === 'undefined') {
+      setIsSectionVisible(true)
+      setShouldLoadEmbeds(true)
+      return
+    }
+
+    const preloadObserver = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        setShouldLoadEmbeds(true)
+        preloadObserver.disconnect()
+      },
+      { rootMargin: '240px 0px' }
+    )
+
+    const visibilityObserver = new IntersectionObserver(
+      ([entry]) => setIsSectionVisible(entry.isIntersecting),
+      { threshold: 0.02 }
+    )
+
+    preloadObserver.observe(section)
+    visibilityObserver.observe(section)
+
+    return () => {
+      preloadObserver.disconnect()
+      visibilityObserver.disconnect()
+    }
+  }, [])
+
+  useEffect(() => {
     const track = trackRef.current
-    if (!track) return
+    if (!track || !isSectionVisible || isMobileViewport) return
 
     let animationFrame = 0
     let previousTime = performance.now()
-    let virtualScrollLeft = normalizeLoopPosition(track)
-    const speedPxPerMs = isMobileViewport ? 0.085 : 0.05
+    let virtualScrollLeft = track.scrollLeft
+    let direction = 1
+    const speedPxPerMs = 0.045
 
     const tick = (currentTime: number) => {
       const elapsed = currentTime - previousTime
       previousTime = currentTime
 
       if (shouldAutoScroll) {
-        const loopWidth = track.scrollWidth / 2
+        const maxScrollLeft = Math.max(0, track.scrollWidth - track.clientWidth)
 
-        if (loopWidth > 0) {
-          // If the user scrolled while paused, sync animation cursor before continuing.
+        if (maxScrollLeft > 0) {
           if (Math.abs(track.scrollLeft - virtualScrollLeft) > 2) {
-            virtualScrollLeft = normalizeLoopPosition(track)
+            virtualScrollLeft = track.scrollLeft
           }
 
-          virtualScrollLeft += elapsed * speedPxPerMs
-          if (virtualScrollLeft >= loopWidth) {
-            virtualScrollLeft -= loopWidth
+          virtualScrollLeft += elapsed * speedPxPerMs * direction
+          if (virtualScrollLeft >= maxScrollLeft) {
+            virtualScrollLeft = maxScrollLeft
+            direction = -1
+          } else if (virtualScrollLeft <= 0) {
+            virtualScrollLeft = 0
+            direction = 1
           }
           track.scrollLeft = virtualScrollLeft
         }
@@ -148,7 +168,7 @@ export default function LinkedInActivitySection() {
     animationFrame = window.requestAnimationFrame(tick)
 
     return () => window.cancelAnimationFrame(animationFrame)
-  }, [isMobileViewport, shouldAutoScroll])
+  }, [isMobileViewport, isSectionVisible, shouldAutoScroll])
 
   const embedSources = useMemo(() => {
     return activityEmbeds.reduce<Record<string, string>>((accumulator, item) => {
@@ -182,16 +202,16 @@ export default function LinkedInActivitySection() {
     }))
   }
 
-  const getCardWidthClass = (type: ActivityType) => {
-    if (type === 'linkedin') return 'w-[min(84vw,22rem)] max-[360px]:w-[min(88vw,18.5rem)]'
-    if (type === 'instagram-post') return 'w-[min(72vw,19rem)] max-[360px]:w-[min(78vw,15.5rem)]'
-    return 'w-[min(66vw,17rem)] max-[360px]:w-[min(72vw,14rem)]'
+  const getCardClass = (type: ActivityType) => {
+    if (type === 'linkedin') return 'activity-card activity-card-linkedin'
+    if (type === 'instagram-post') return 'activity-card activity-card-instagram'
+    return 'activity-card activity-card-reel'
   }
 
-  const getFrameHeightClass = (type: ActivityType) => {
-    if (type === 'linkedin') return 'h-[23rem] sm:h-[25rem]'
-    if (type === 'instagram-post') return 'h-[24rem] sm:h-[27rem]'
-    return 'h-[28rem] sm:h-[31rem]'
+  const getFrameClass = (type: ActivityType) => {
+    if (type === 'linkedin') return 'activity-frame activity-frame-linkedin'
+    if (type === 'instagram-post') return 'activity-frame activity-frame-instagram'
+    return 'activity-frame activity-frame-reel'
   }
 
   const getTypeLabel = (type: ActivityType) => {
@@ -200,67 +220,54 @@ export default function LinkedInActivitySection() {
     return 'Reel'
   }
 
-  const stopAutoScrollOnMobileInteraction = () => {
-    if (isMobileViewport) {
-      setIsAutoScrollStoppedByInteraction(true)
-    }
-  }
-
   return (
-    <section className="scroll-mt-24 bg-surface-container-low px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:flex lg:items-center" id="activity">
-      <div className="mx-auto w-full max-w-7xl">
-        <div className="mb-8 flex items-end justify-between gap-4 sm:mb-10 md:mb-12">
-          <h2 className="section-heading font-headline text-3xl font-extrabold tracking-tight text-on-surface md:text-4xl">Activity</h2>
+    <section className="activity" id="activity" aria-labelledby="activity-title" ref={sectionRef}>
+      <div className="activity-shell section-shell">
+        <div className="activity-heading" data-reveal>
+          <div>
+            <h2 id="activity-title">Recent<br />activity.</h2>
+            <p>Notes from the workbench, public updates, and a little life outside the editor.</p>
+          </div>
           <a
-            className="text-xs font-semibold uppercase tracking-[0.08em] text-primary transition-opacity hover:opacity-80"
-            href="https://www.linkedin.com/in/trishit-swarnakar/"
+            className="activity-profile-link"
+            href="https://www.linkedin.com/in/trishit-swarnakar-b7350828a"
             rel="noreferrer noopener"
             target="_blank"
           >
-            Open Profiles
+            Open profile <span aria-hidden="true">↗</span>
           </a>
         </div>
 
-        <div className="relative">
-          <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-gradient-to-r from-surface-container-low to-transparent" />
-          <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-gradient-to-l from-surface-container-low to-transparent" />
-
+        <div className="activity-rail">
           <div
-            className={`flex gap-4 overflow-x-auto pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
-              shouldAutoScroll ? 'snap-none' : 'snap-x snap-mandatory'
-            }`}
-            onClick={stopAutoScrollOnMobileInteraction}
+            className={`activity-track${shouldAutoScroll ? '' : ' is-manual'}`}
             onMouseEnter={() => setIsAutoScrollPaused(true)}
             onMouseLeave={() => setIsAutoScrollPaused(false)}
-            onPointerDown={stopAutoScrollOnMobileInteraction}
-            onTouchStart={stopAutoScrollOnMobileInteraction}
             ref={trackRef}
           >
-            {loopedActivityEmbeds.map((item, index) => {
+            {activityEmbeds.map((item) => {
               const isReel = item.type === 'instagram-reel'
               const isMuted = reelMuteState[item.id] ?? true
 
               return (
                 <article
-                  className={`${getCardWidthClass(item.type)} shrink-0 snap-start rounded-2xl border border-outline-variant/20 bg-surface p-3 shadow-[0_10px_30px_-20px_rgba(0,0,0,0.5)] md:p-3.5`}
-                  key={`${item.id}-${index}`}
+                  className={getCardClass(item.type)}
+                  key={item.id}
                 >
-                  <div className="mb-2 flex items-center justify-between gap-3">
-                    <span className="rounded-full bg-surface-container-highest px-2 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-on-surface-variant">
-                      {getTypeLabel(item.type)}
-                    </span>
+                  <div className="activity-card-header">
+                    <span>{getTypeLabel(item.type)}</span>
 
                     {isReel ? (
                       <button
-                        className="rounded-full border border-outline-variant/30 bg-surface-container-low px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-on-surface transition-colors hover:bg-surface-container"
+                        aria-label={isMuted ? 'Unmute reel' : 'Mute reel'}
+                        title={isMuted ? 'Unmute reel' : 'Mute reel'}
                         onClick={() => toggleReelAudio(item.id)}
                         type="button"
                       >
-                        {isMuted ? 'Unmute' : 'Mute'}
+                        <span aria-hidden="true">{isMuted ? 'MUTE' : 'SOUND'}</span>
                       </button>
                     ) : (
                       <a
-                        className="text-[10px] font-bold uppercase tracking-[0.08em] text-primary transition-opacity hover:opacity-80"
                         href={item.postUrl}
                         rel="noreferrer noopener"
                         target="_blank"
@@ -270,12 +277,12 @@ export default function LinkedInActivitySection() {
                     )}
                   </div>
 
-                  <div className="overflow-hidden rounded-xl border border-outline-variant/15 bg-surface-container-low">
+                  <div className="activity-frame-wrap">
                     <iframe
                       allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-                      allowFullScreen
-                      className={`${getFrameHeightClass(item.type)} w-full`}
-                      src={embedSources[item.id]}
+                      className={getFrameClass(item.type)}
+                      loading="lazy"
+                      src={shouldLoadEmbeds && (!isReel || isSectionVisible) ? embedSources[item.id] : 'about:blank'}
                       title={`${getTypeLabel(item.type)} ${item.id}`}
                     />
                   </div>

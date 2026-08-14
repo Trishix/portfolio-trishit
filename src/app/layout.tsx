@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 const siteUrl =
@@ -7,31 +7,46 @@ const siteUrl =
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: 'Trishit Swarnakar | Full Stack & AI Developer',
-  description: 'Portfolio of Trishit Swarnakar with full-stack and AI projects, open-source work, and experience.',
+  title: 'Trishit Swarnakar | Full-Stack & AI Developer',
+  description: 'Trishit Swarnakar builds full-stack products, AI agents, and useful digital experiences.',
   icons: {
-    icon: [{ url: '/logo.png', type: 'image/png' }],
-    shortcut: '/logo.png',
-    apple: '/logo.png',
+    icon: [
+      { url: '/brand-icon.svg', type: 'image/svg+xml' },
+      { url: '/brand-icon.png', type: 'image/png', sizes: '512x512' },
+    ],
+    shortcut: '/brand-icon.png',
+    apple: '/brand-icon.png',
   },
   openGraph: {
     type: 'website',
     url: '/',
-    title: 'Trishit Swarnakar | Full Stack & AI Developer',
-    description: 'Portfolio with full-stack and AI projects, open-source contributions, and experience.',
+    title: 'Trishit Swarnakar | Full-Stack & AI Developer',
+    description: 'Full-stack products, AI agents, open-source work, and experience by Trishit Swarnakar.',
     images: [
       {
-        url: '/logo.png',
-        alt: 'Trishit logo',
+        url: '/portfolio-preview.png',
+        width: 1200,
+        height: 630,
+        alt: 'Trishit Swarnakar, Full-Stack and AI Engineer',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Trishit Swarnakar | Full Stack & AI Developer',
-    description: 'Portfolio with full-stack and AI projects, open-source contributions, and experience.',
-    images: ['/logo.png'],
+    title: 'Trishit Swarnakar | Full-Stack & AI Developer',
+    description: 'Full-stack products, AI agents, open-source work, and experience by Trishit Swarnakar.',
+    images: ['/portfolio-preview.png'],
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#981827' },
+    { media: '(prefers-color-scheme: dark)', color: '#06070a' },
+  ],
 }
 
 export default function RootLayout({
@@ -40,13 +55,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className="scroll-smooth" lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
-      </head>
-      <body className="bg-surface font-body text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
-        {children}
-      </body>
+    <html lang="en">
+      <body>{children}</body>
     </html>
   )
 }

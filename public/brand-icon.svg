@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">Trishit Swarnakar monogram</title>
+  <desc id="description">TS monogram with a restrained red slash and web geometry.</desc>
+  <rect width="512" height="512" fill="#06070a"/>
+  <g fill="none" stroke="#f7f8fa" stroke-width="2" opacity="0.13">
+    <circle cx="512" cy="0" r="88"/>
+    <circle cx="512" cy="0" r="150"/>
+    <circle cx="512" cy="0" r="212"/>
+    <path d="M512 0 320 114M512 0 376 176M512 0 446 218"/>
+  </g>
+  <text x="56" y="345" fill="#f7f8fa" font-family="Arial, Helvetica, sans-serif" font-size="218" font-weight="800">TS</text>
+  <path d="M398 116h52l-92 280h-52z" fill="#c52a3d"/>
+  <path d="M58 414h188" stroke="#c52a3d" stroke-width="12"/>
+</svg>

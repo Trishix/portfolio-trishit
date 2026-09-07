@@ -40,9 +40,10 @@ h2 span { color: var(--red); }
 .nav-mark { width: 22px; height: 32px; color: var(--red); }
 .desktop-nav { display: flex; align-items: center; gap: 1.7rem; font-size: .72rem; }
 .desktop-nav a { padding-block: .8rem; position: relative; }
-.desktop-nav a::after { content: ''; position: absolute; bottom: .3rem; left: 0; right: 0; height: 1px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
-.desktop-nav a:hover::after, .desktop-nav a.active::after { transform: scaleX(1); }
+.desktop-nav a:not(.nav-contact)::after { content: ''; position: absolute; bottom: .3rem; left: 0; right: 0; height: 1px; background: var(--red); transform: scaleX(0); transform-origin: left; transition: transform .4s var(--ease); }
+.desktop-nav a:not(.nav-contact):hover::after, .desktop-nav a:not(.nav-contact).active::after { transform: scaleX(1); }
 .desktop-nav .nav-contact { display: flex; gap: 1.5rem; align-items: center; border: 1px solid #eeece74d; border-radius: 2rem; padding: .55rem .9rem .55rem 1.1rem; }
+.desktop-nav .nav-contact::after { display: none; }
 .nav-contact span { color: var(--red); }
 .menu-toggle, .mobile-nav { display: none; }
 .web-progress { position: fixed; right: 0; top: 0; bottom: 0; width: 2px; z-index: var(--layer-header); }

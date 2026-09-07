@@ -17,7 +17,33 @@ export default function TopNavBar() {
   const headerRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+
+  useEffect(() => {
+    let previousY = window.scrollY
+    let travel = 0
+    if (isOpen) setIsHidden(false)
+    const onScroll = () => {
+      const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
+      const currentY = Math.max(0, Math.min(window.scrollY, maxY))
+      const delta = currentY - previousY
+      previousY = currentY
+      if (isOpen || currentY < 120 || headerRef.current?.querySelector(':focus-visible')) {
+        travel = 0
+        setIsHidden(false)
+        return
+      }
+      // Accumulate movement in one direction so tiny scroll reversals do not flicker.
+      travel = Math.sign(delta) === Math.sign(travel) ? travel + delta : delta
+      if (Math.abs(travel) >= 12) {
+        setIsHidden(travel > 0)
+        travel = 0
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [isOpen])
 
   useEffect(() => {
     const hero = document.getElementById('home')
@@ -84,7 +110,7 @@ export default function TopNavBar() {
   }
 
   return (
-    <header ref={headerRef} className={`site-header${isScrolled || isOpen ? ' is-scrolled' : ''}`}>
+    <header ref={headerRef} onFocusCapture={() => setIsHidden(false)} className={`site-header${isScrolled || isOpen ? ' is-scrolled' : ''}${isHidden && !isOpen ? ' is-hidden' : ''}`}>
       <nav className="site-nav" aria-label="Primary navigation">
         <a className="wordmark" href="#home" onClick={scrollToSection('home')} aria-label="Trishit Swarnakar, home">
           <SpiderMark className="nav-mark" />

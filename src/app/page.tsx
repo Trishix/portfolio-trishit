@@ -1,5 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
-import LinkedInActivitySection from '@/components/LinkedInActivitySection'
+import ActivityGallery from '@/components/ActivityGallery'
 import { ArrowIcon, CapabilityIcon } from '@/components/InterfaceIcon'
 import WebField from '@/components/WebField'
 import SpiderMark from '@/components/SpiderMark'
@@ -336,7 +336,7 @@ export default function Home() {
           </div>
         </section>
 
-        <LinkedInActivitySection />
+        <ActivityGallery />
 
         <footer className="contact" id="contact">
           <div className="contact-grid" aria-hidden="true" />

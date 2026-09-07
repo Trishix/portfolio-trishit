@@ -211,8 +211,7 @@ export default function Home() {
             <div className="hero-caption"><span>Delhi / Kalyani, India</span><span>Scroll to explore <ArrowIcon direction="down" /></span></div>
           </div>
           <div className="hero-media" data-hero-media>
-            <Image alt="Trishit Swarnakar, photographed at night" src={portraitImage} fill priority quality={85} sizes="(max-width: 760px) 90vw, 45vw" className="hero-media-image" />
-            <div className="hero-media-shade" />
+            <Image alt="Trishit Swarnakar, photographed at night" src={portraitImage} fill priority quality={85} sizes="(max-width: 600px) 100vw, (max-width: 1100px) 51vw, (min-width: 1568px) 768px, 49vw" className="hero-media-image" />
           </div>
         </section>
 

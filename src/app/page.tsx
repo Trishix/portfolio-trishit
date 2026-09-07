@@ -1,5 +1,8 @@
 import Image, { StaticImageData } from 'next/image'
 import LinkedInActivitySection from '@/components/LinkedInActivitySection'
+import { ArrowIcon, CapabilityIcon } from '@/components/InterfaceIcon'
+import WebField from '@/components/WebField'
+import SpiderMark from '@/components/SpiderMark'
 import MotionController from '@/components/MotionController'
 import TopNavBar from '@/components/TopNavBar'
 import portraitImage from '@/assets/trishit-hero-cinematic.jpg'
@@ -186,7 +189,7 @@ const socialLinks = [
 const calendlyUrl = 'https://calendly.com/trishitofficial/30min'
 
 export default function Home() {
-  const manifesto = 'I engineer digital products where difficult systems feel clear, fast, and inevitable.'
+  const manifesto = 'I build full-stack products and AI systems. From the first interaction to the logic behind it.'
 
   return (
     <>
@@ -197,56 +200,29 @@ export default function Home() {
 
       <main id="main-content">
         <section className="hero" id="home" aria-labelledby="hero-title">
-          <div className="hero-grid" aria-hidden="true" />
+          <WebField />
+          <div className="hero-content section-shell">
+            <h1 id="hero-title" data-hero-reveal><span>Trishit</span><span>Swarnakar<span className="name-period">.</span></span></h1>
+            <div className="hero-intro" data-hero-reveal>
+              <span className="hero-role">Your friendly neighbourhood<br /><strong>Full-stack & AI engineer.</strong></span>
+              <p>Building intelligent products, resilient interfaces, and technical systems with a point of view.</p>
+              <a className="primary-action" href="#work" data-magnetic>Explore my work <span><ArrowIcon direction="down-right" /></span></a>
+            </div>
+            <div className="hero-caption"><span>Delhi / Kalyani, India</span><span>Scroll to explore <ArrowIcon direction="down" /></span></div>
+          </div>
           <div className="hero-media" data-hero-media>
-            <Image
-              alt="Trishit Swarnakar"
-              src={portraitImage}
-              fill
-              priority
-              quality={94}
-              sizes="(max-width: 760px) 72vw, 48vw"
-              className="hero-media-image"
-            />
+            <Image alt="Trishit Swarnakar, photographed at night" src={portraitImage} fill priority quality={85} sizes="(max-width: 760px) 90vw, 45vw" className="hero-media-image" />
             <div className="hero-media-shade" />
           </div>
-
-          <div className="hero-content section-shell">
-            <p className="hero-eyebrow" data-hero-reveal>Full-stack and AI engineer</p>
-            <h1 id="hero-title" data-hero-reveal>
-              Trishit<br />Swarnakar
-            </h1>
-            <div className="hero-lower" data-hero-reveal>
-              <p>Building intelligent products, resilient interfaces, and technical systems with a point of view.</p>
-              <div className="hero-actions">
-                <a className="primary-action" href="#work">Explore selected work <span aria-hidden="true">↘</span></a>
-                <a className="text-action" href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">
-                  GitHub <span aria-hidden="true">↗</span>
-                </a>
-                <a className="text-action" href="https://linkedin.com/in/trishit-swarnakar-b7350828a" target="_blank" rel="noreferrer noopener">
-                  LinkedIn <span aria-hidden="true">↗</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className="hero-scroll" aria-hidden="true"><span /> Scroll to inspect</div>
         </section>
 
-        <div className="stack-marquee" aria-label="Core technologies">
-          <div>
-            {['TypeScript', 'Next.js', 'React', 'AI systems', 'Node.js', 'Python', 'GSAP', 'Supabase'].map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-            {['TypeScript', 'Next.js', 'React', 'AI systems', 'Node.js', 'Python', 'GSAP', 'Supabase'].map((item) => (
-              <span aria-hidden="true" key={`${item}-copy`}>{item}</span>
-            ))}
-          </div>
+        <div className="stack-marquee" aria-label="Core capabilities">
+          <div>{['Frontend systems', 'Backend architecture', 'AI engineering', 'Product thinking', 'Interaction design', 'Open source', 'System design', 'Deployment'].map(item => <span key={item}>{item}</span>)}</div>
         </div>
 
         <section className="manifesto" id="profile">
           <div className="manifesto-shell section-shell">
-            <p className="manifesto-kicker" data-reveal>Engineering, with intent.</p>
+            <div className="profile-signature" data-reveal><SpiderMark /><span>A little about<br />the person building.</span></div>
             <p className="manifesto-statement" data-manifesto>
               {manifesto.split(' ').map((word, index) => (
                 <span className="manifesto-word" key={`${word}-${index}`}>{word}{' '}</span>
@@ -261,10 +237,10 @@ export default function Home() {
         <section className="work" id="work" aria-labelledby="work-title">
           <div className="work-layout section-shell">
             <div className="work-title-rail">
-              <p>Selected work / 2025 - 2026</p>
-              <h2 id="work-title">Systems<br />in motion.</h2>
+              <h2 id="work-title">Selected<br /><span>work.</span></h2>
+              <p className="work-years">2025 — 2026</p>
               <p>Product interfaces and AI systems built to work beyond the demo.</p>
-              <a href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">More work on GitHub <span aria-hidden="true">↗</span></a>
+              <a href="https://github.com/Trishix" target="_blank" rel="noreferrer noopener">More work on GitHub <span><ArrowIcon /></span></a>
             </div>
 
             <div className="project-grid">
@@ -283,10 +259,10 @@ export default function Home() {
                     </div>
                     <div className="project-info">
                       <div className="project-heading">
-                        <p>{project.category} / {project.year}</p>
                         <h3>{project.title}</h3>
+                        <p>{project.category} / {project.year}</p>
                       </div>
-                      <span className="project-open" aria-hidden="true">↗</span>
+                      <span className="project-open"><ArrowIcon /></span>
                       <p className="project-description">{project.description}</p>
                       <ul aria-label={`${project.title} stack`}>
                         {project.stack.map((item) => <li key={item}>{item}</li>)}
@@ -302,14 +278,14 @@ export default function Home() {
 
         <section className="capabilities" id="toolkit" aria-labelledby="capabilities-title">
           <div className="capabilities-intro section-shell">
-            <p>Capabilities</p>
-            <h2 id="capabilities-title">From interface<br />to intelligence.</h2>
+            <h2 id="capabilities-title">The tools.<br /><span>The thinking.</span></h2>
+            <p>From interface to intelligence.<br />The skills behind the work.</p>
           </div>
           <div className="capabilities-viewport">
             <div className="capabilities-track">
               {capabilities.map((capability) => (
                 <article className="capability-panel" key={capability.title}>
-                  <span>{capability.index}</span>
+                  <span className="capability-symbol"><CapabilityIcon kind={capability.index} /></span>
                   <h3>{capability.title}</h3>
                   <p>{capability.text}</p>
                   <ul>
@@ -368,15 +344,15 @@ export default function Home() {
           <div className="contact-web contact-web-top" aria-hidden="true" />
           <div className="contact-web contact-web-bottom" aria-hidden="true" />
           <div className="contact-shell section-shell">
-            <p data-reveal>Available for serious builds and difficult product problems.</p>
-            <h2 data-reveal>Let&apos;s make the<br />next system count.</h2>
+            <h2 data-reveal>Have something<br /><span>in mind?</span></h2>
+            <p className="contact-intro" data-reveal>Let’s talk about your next build.</p>
             <a className="contact-cta" href={calendlyUrl} target="_blank" rel="noreferrer noopener" data-reveal>
-              Schedule a call on Calendly <span aria-hidden="true">↗</span>
+              Schedule a call <span><ArrowIcon /></span>
             </a>
             <div className="contact-bottom">
               <div className="social-links" aria-label="Social links">
                 {socialLinks.map((link) => (
-                  <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.label}>{link.label} <span aria-hidden="true">↗</span></a>
+                  <a href={link.href} target="_blank" rel="noreferrer noopener" key={link.label}>{link.label} <span><ArrowIcon /></span></a>
                 ))}
               </div>
               <p>© 2026 Trishit Swarnakar</p>

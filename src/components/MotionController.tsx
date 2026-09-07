@@ -9,209 +9,38 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function MotionController() {
   useEffect(() => {
-    const root = document.documentElement
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-
-    if (reduceMotion) {
-      root.classList.add('motion-disabled')
-      return () => root.classList.remove('motion-disabled')
-    }
-
-    root.classList.add('motion-ready')
-
-    const useSmoothWheel = window.innerWidth > 900 && window.matchMedia('(hover: hover) and (pointer: fine)').matches
-    const lenis = useSmoothWheel
-      ? new Lenis({
-          duration: 1.05,
-          smoothWheel: true,
+    const media = gsap.matchMedia()
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      const desktop = window.matchMedia('(min-width: 900px) and (pointer: fine)').matches
+      const lenis = desktop ? new Lenis({ duration: 1.05, smoothWheel: true, anchors: true }) : null
+      const tick = (time: number) => lenis?.raf(time * 1000)
+      if (lenis) { lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(tick) }
+      const context = gsap.context(() => {
+        gsap.from('[data-hero-reveal]', { y: 35, opacity: 0, duration: 1.1, stagger: .12, ease: 'power3.out', clearProps: 'all' })
+        gsap.from('[data-hero-media]', { y: 40, opacity: 0, duration: 1.3, delay: .25, ease: 'power3.out', clearProps: 'all' })
+        gsap.utils.toArray<HTMLElement>('[data-reveal], [data-project-card]').forEach(element => {
+          gsap.from(element, { y: 32, duration: .85, ease: 'power3.out', clearProps: 'transform', scrollTrigger: { trigger: element, start: 'top 95%', once: true } })
         })
-      : null
-
-    const updateLenis = (time: number) => lenis?.raf(time * 1000)
-
-    if (lenis) {
-      lenis.on('scroll', ScrollTrigger.update)
-      gsap.ticker.add(updateLenis)
-      gsap.ticker.lagSmoothing(0)
-    }
-
-    const context = gsap.context(() => {
-      gsap.fromTo(
-        '[data-hero-reveal]',
-        { autoAlpha: 0, y: 42 },
-        { autoAlpha: 1, y: 0, duration: 1.15, stagger: 0.14, ease: 'power3.out', delay: 0.12 }
-      )
-
-      const words = gsap.utils.toArray<HTMLElement>('.manifesto-word')
-
-      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((element) => {
-        gsap.fromTo(
-          element,
-          { autoAlpha: 0, y: 44 },
-          {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.9,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: element,
-              start: 'top 88%',
-              once: true,
-            },
-          }
-        )
+        gsap.from('.manifesto-word', { opacity: .45, stagger: .08, ease: 'none', scrollTrigger: { trigger: '[data-manifesto]', start: 'top 90%', end: 'bottom 55%', scrub: .4 } })
+        gsap.to('.web-progress span', { scaleY: 1, ease: 'none', scrollTrigger: { start: 0, end: 'max', scrub: .2 } })
       })
-
-      const media = gsap.matchMedia()
-
-      media.add('(min-width: 901px)', () => {
-        gsap.fromTo(
-          '[data-hero-media]',
-          { scale: 1.02, yPercent: 0 },
-          {
-            scale: 1.1,
-            yPercent: 10,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: '.hero',
-              start: 'top top',
-              end: 'bottom top',
-              scrub: 1.2,
-            },
+      const cleanups: Array<() => void> = []
+      if (desktop) {
+        document.querySelectorAll<HTMLElement>('[data-magnetic]').forEach(element => {
+          const move = (e: PointerEvent) => {
+            const rect = element.getBoundingClientRect()
+            gsap.to(element, { x: (e.clientX - rect.left - rect.width / 2) * .12, y: (e.clientY - rect.top - rect.height / 2) * .18, duration: .4, ease: 'power3.out' })
           }
-        )
-
-        gsap.to('.hero-content', {
-          yPercent: -8,
-          autoAlpha: 0.22,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.hero',
-            start: 'top top',
-            end: 'bottom top',
-            scrub: 1,
-          },
+          const leave = () => gsap.to(element, { x: 0, y: 0, duration: .8, ease: 'elastic.out(1, .45)' })
+          element.addEventListener('pointermove', move); element.addEventListener('pointerleave', leave)
+          cleanups.push(() => { element.removeEventListener('pointermove', move); element.removeEventListener('pointerleave', leave); gsap.killTweensOf(element); gsap.set(element, { clearProps: 'transform' }) })
         })
-
-        gsap.fromTo(
-          words,
-          { opacity: 0.1 },
-          {
-            opacity: 1,
-            stagger: 0.06,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: '[data-manifesto]',
-              start: 'top 78%',
-              end: 'bottom 42%',
-              scrub: 1,
-            },
-          }
-        )
-
-        gsap.to('.web-progress span', {
-          scaleY: 1,
-          ease: 'none',
-          scrollTrigger: {
-            start: 0,
-            end: 'max',
-            scrub: 0.35,
-          },
-        })
-
-        ScrollTrigger.create({
-          trigger: '.work-layout',
-          start: 'top top+=112',
-          end: 'bottom bottom-=140',
-          pin: '.work-title-rail',
-          pinSpacing: false,
-          anticipatePin: 1,
-        })
-
-        gsap.utils.toArray<HTMLElement>('[data-project-card]').forEach((card) => {
-          const timeline = gsap.timeline({
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 96%',
-              end: 'bottom 6%',
-              scrub: 0.8,
-            },
-          })
-
-          timeline
-            .fromTo(card, { scale: 0.88, autoAlpha: 0.28, y: 90 }, { scale: 1, autoAlpha: 1, y: 0, duration: 0.46, ease: 'none' })
-            .to(card, { scale: 0.95, autoAlpha: 0.32, duration: 0.54, ease: 'none' })
-
-          const image = card.querySelector<HTMLElement>('[data-parallax-media]')
-          if (image && !image.classList.contains('project-media-contain-light') && !image.classList.contains('project-media-contain-dark')) {
-            gsap.fromTo(image, { yPercent: -5, scale: 1.08 }, {
-              yPercent: 7,
-              scale: 1.02,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: card,
-                start: 'top bottom',
-                end: 'bottom top',
-                scrub: 1,
-              },
-            })
-          }
-        })
-
-        const track = document.querySelector<HTMLElement>('.capabilities-track')
-        const viewport = document.querySelector<HTMLElement>('.capabilities-viewport')
-
-        if (track && viewport) {
-          const distance = () => Math.max(0, track.scrollWidth - viewport.clientWidth)
-          gsap.to(track, {
-            x: () => -distance(),
-            ease: 'none',
-            scrollTrigger: {
-              trigger: '.capabilities',
-              start: 'top top',
-              end: () => `+=${distance() + window.innerHeight * 0.35}`,
-              pin: true,
-              scrub: 1,
-              anticipatePin: 1,
-              invalidateOnRefresh: true,
-            },
-          })
-        }
-      })
-
-      media.add('(max-width: 900px)', () => {
-        gsap.set(words, { opacity: 1 })
-
-        gsap.utils.toArray<HTMLElement>('[data-project-card], .capability-panel').forEach((element) => {
-          gsap.fromTo(element, { autoAlpha: 0, y: 54 }, {
-            autoAlpha: 1,
-            y: 0,
-            duration: 0.8,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: element,
-              start: 'top 90%',
-              once: true,
-            },
-          })
-        })
-      })
-
-      return () => media.revert()
-    }, document.body)
-
-    const refresh = () => ScrollTrigger.refresh()
-    document.fonts?.ready.then(refresh)
-    window.addEventListener('load', refresh)
-
-    return () => {
-      window.removeEventListener('load', refresh)
-      context.revert()
-      lenis?.destroy()
-      if (lenis) gsap.ticker.remove(updateLenis)
-      root.classList.remove('motion-ready')
-    }
+      }
+      let disposed = false
+      document.fonts.ready.then(() => { if (!disposed) ScrollTrigger.refresh() })
+      return () => { disposed = true; cleanups.forEach(fn => fn()); context.revert(); lenis?.destroy(); gsap.ticker.remove(tick) }
+    })
+    return () => media.revert()
   }, [])
-
   return null
 }

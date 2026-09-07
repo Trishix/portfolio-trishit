@@ -44,8 +44,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: 'cover',
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#981827' },
-    { media: '(prefers-color-scheme: dark)', color: '#06070a' },
+    { media: '(prefers-color-scheme: light)', color: '#101113' },
+    { media: '(prefers-color-scheme: dark)', color: '#101113' },
   ],
 }
 
@@ -56,6 +56,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preload" href="/fonts/barlow-condensed-800.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/manrope-400.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+      </head>
       <body>{children}</body>
     </html>
   )

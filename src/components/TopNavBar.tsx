@@ -1,6 +1,8 @@
 'use client'
 
-import { MouseEvent, useEffect, useState } from 'react'
+import { MouseEvent, useEffect, useRef, useState } from 'react'
+import { ArrowIcon } from './InterfaceIcon'
+import SpiderMark from './SpiderMark'
 
 const navItems = [
   { id: 'work', label: 'Work' },
@@ -11,19 +13,22 @@ const navItems = [
 ]
 
 export default function TopNavBar() {
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const headerRef = useRef<HTMLElement>(null)
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 24)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const hero = document.getElementById('home')
+    if (!hero) return
+    const observer = new IntersectionObserver(([entry]) => setIsScrolled(!entry.isIntersecting), { rootMargin: '-80px 0px 0px 0px' })
+    observer.observe(hero)
+    return () => observer.disconnect()
   }, [])
 
   useEffect(() => {
-    const sections = ['home', ...navItems.map((item) => item.id)]
+    const sections = ['home', ...navItems.map((item) => item.id), 'contact']
       .map((id) => document.getElementById(id))
       .filter((section): section is HTMLElement => section instanceof HTMLElement)
 
@@ -43,7 +48,17 @@ export default function TopNavBar() {
 
   useEffect(() => {
     document.body.classList.toggle('menu-open', isOpen)
-    return () => document.body.classList.remove('menu-open')
+    if (!isOpen) return
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { setIsOpen(false); toggleRef.current?.focus() }
+      if (event.key !== 'Tab') return
+      const links = Array.from(headerRef.current?.querySelectorAll<HTMLElement>('a, button') ?? []).filter(el => el.getClientRects().length > 0)
+      const first = links[0], last = links[links.length - 1]
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus() }
+      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus() }
+    }
+    document.addEventListener('keydown', onKey)
+    return () => { document.body.classList.remove('menu-open'); document.removeEventListener('keydown', onKey) }
   }, [isOpen])
 
   useEffect(() => {
@@ -64,13 +79,15 @@ export default function TopNavBar() {
     window.history.replaceState(null, '', `#${id}`)
     setActiveSection(id)
     setIsOpen(false)
+    target.setAttribute('tabindex', '-1')
+    target.focus({ preventScroll: true })
   }
 
   return (
-    <header className={`site-header${isScrolled || isOpen ? ' is-scrolled' : ''}`}>
+    <header ref={headerRef} className={`site-header${isScrolled || isOpen ? ' is-scrolled' : ''}`}>
       <nav className="site-nav" aria-label="Primary navigation">
         <a className="wordmark" href="#home" onClick={scrollToSection('home')} aria-label="Trishit Swarnakar, home">
-          <span aria-hidden="true">TS/</span>
+          <SpiderMark className="nav-mark" />
           <span>TRISHIT SWARNAKAR</span>
         </a>
 
@@ -78,6 +95,7 @@ export default function TopNavBar() {
           {navItems.map((item) => (
             <a
               className={activeSection === item.id ? 'active' : ''}
+              aria-current={activeSection === item.id ? 'location' : undefined}
               href={`#${item.id}`}
               onClick={scrollToSection(item.id)}
               key={item.id}
@@ -86,11 +104,12 @@ export default function TopNavBar() {
             </a>
           ))}
           <a className="nav-contact" href="#contact" onClick={scrollToSection('contact')}>
-            Contact <span aria-hidden="true">↗</span>
+            Contact <span><ArrowIcon /></span>
           </a>
         </div>
 
         <button
+          ref={toggleRef}
           className="menu-toggle"
           type="button"
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}

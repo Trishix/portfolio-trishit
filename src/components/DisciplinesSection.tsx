@@ -1,81 +1,64 @@
-const leftTechIcons = [
-  { icon: 'code', placementClass: 'top-[7%] left-2 -rotate-[14deg]' },
-  { icon: 'language', placementClass: 'top-[16%] left-6 rotate-[8deg]' },
-  { icon: 'data_object', placementClass: 'top-[26%] left-3 -rotate-[8deg]' },
-  { icon: 'terminal', placementClass: 'top-[38%] left-5 rotate-[12deg]' },
-  { icon: 'database', placementClass: 'top-[51%] left-2 -rotate-[10deg]' },
-  { icon: 'hub', placementClass: 'top-[63%] left-6 rotate-[7deg]' },
-  { icon: 'analytics', placementClass: 'top-[75%] left-3 -rotate-[12deg]' },
-  { icon: 'table_chart', placementClass: 'top-[87%] left-5 rotate-[9deg]' },
-  { icon: 'integration_instructions', placementClass: 'top-[94%] left-2 -rotate-[6deg]' },
-]
-
-const rightTechIcons = [
-  { icon: 'palette', placementClass: 'top-[9%] right-2 rotate-[12deg]' },
-  { icon: 'cloud', placementClass: 'top-[20%] right-5 -rotate-[8deg]' },
-  { icon: 'smart_toy', placementClass: 'top-[31%] right-2 rotate-[11deg]' },
-  { icon: 'memory', placementClass: 'top-[43%] right-6 -rotate-[9deg]' },
-  { icon: 'settings', placementClass: 'top-[56%] right-2 rotate-[10deg]' },
-  { icon: 'psychology', placementClass: 'top-[69%] right-5 -rotate-[8deg]' },
-  { icon: 'precision_manufacturing', placementClass: 'top-[82%] right-2 rotate-[9deg]' },
-  { icon: 'music_note', placementClass: 'top-[92%] right-6 -rotate-[7deg]' },
-  { icon: 'code', placementClass: 'top-[97%] right-2 rotate-[6deg]' },
-]
-
 export default function DisciplinesSection() {
+  const disciplines = [
+    {
+      title: 'Agentic AI Systems',
+      description: 'I build agent workflows that fetch live data, decide the next step, and execute tasks like search, summarization, and API actions. Focus on practical AI.',
+      icon: 'database',
+    },
+    {
+      title: 'Full Stack Dev',
+      description: 'I build and deploy end-to-end apps with React, Next.js, TypeScript, APIs, and databases, with an unwavering attention to speed, aesthetics, and maintainability.',
+      icon: 'terminal',
+    },
+    {
+      title: 'Side Quests',
+      description: 'I am highly interested in robotics, active in music as a guitarist and composer, and also heavily into photography and cinematography.',
+      icon: 'precision_manufacturing',
+    },
+  ]
+
   return (
-    <section className="relative scroll-mt-24 overflow-hidden bg-surface-container-low px-4 py-12 sm:px-6 sm:py-16 md:px-8 md:py-20 lg:min-h-screen lg:py-0 lg:flex lg:items-center" id="disciplines">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-0 hidden lg:block">
-        <div className="absolute inset-y-0 left-0 w-20 xl:w-24">
-          {leftTechIcons.map((stamp, index) => (
-            <div
-              className={`absolute ${stamp.placementClass} rounded-full border border-outline-variant/20 bg-surface-container-highest/45 p-2 backdrop-blur-[1px]`}
-              key={`left-${stamp.icon}-${index}`}
-            >
-              <span className="material-symbols-outlined text-base leading-none text-primary/65">{stamp.icon}</span>
-            </div>
-          ))}
+    <section className="bg-surface px-4 py-20 sm:px-8 md:px-12 lg:px-16 md:py-32" id="disciplines">
+      <div className="mx-auto max-w-screen-2xl">
+        {/* Section Header */}
+        <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <h2 className="font-headline text-[clamp(2.5rem,8vw,5rem)] font-black uppercase leading-none tracking-tighter text-on-surface">
+            Core<br />Disciplines.
+          </h2>
+          <p className="font-body text-base font-medium max-w-md text-on-surface-variant md:text-right">
+            From discovery to delivering a full product, my mission is to help businesses build amazing experiences through first-class code.
+          </p>
         </div>
 
-        <div className="absolute inset-y-0 right-0 w-20 xl:w-24">
-          {rightTechIcons.map((stamp, index) => (
-            <div
-              className={`absolute ${stamp.placementClass} rounded-full border border-outline-variant/20 bg-surface-container-highest/45 p-2 backdrop-blur-[1px]`}
-              key={`right-${stamp.icon}-${index}`}
-            >
-              <span className="material-symbols-outlined text-base leading-none text-primary/65">{stamp.icon}</span>
+        {/* Disciplines List */}
+        <div className="flex flex-col">
+          {disciplines.map((discipline, idx) => (
+            <div key={idx} className="group border-t-2 border-on-background py-8 md:py-12 flex flex-col md:flex-row gap-6 md:gap-16 lg:gap-32 transition-colors hover:bg-surface-dim px-4 md:px-8 -mx-4 md:-mx-8">
+              
+              <div className="flex-none w-full md:w-1/3 flex items-center justify-between md:justify-start gap-4">
+                <h4 className="font-headline text-2xl md:text-4xl font-bold uppercase tracking-tight text-on-surface">
+                  {discipline.title}
+                </h4>
+                <span className="material-symbols-outlined text-3xl md:text-5xl text-on-surface-variant md:hidden">
+                  {discipline.icon}
+                </span>
+              </div>
+              
+              <div className="flex-grow flex flex-col justify-center">
+                <p className="font-body text-base md:text-lg lg:text-xl font-medium leading-relaxed text-on-surface-variant max-w-2xl">
+                  {discipline.description}
+                </p>
+              </div>
+
+              <div className="hidden md:flex flex-none items-center justify-end">
+                 <span className="material-symbols-outlined text-5xl text-on-surface-variant group-hover:text-on-surface transition-colors">
+                  {discipline.icon}
+                </span>
+              </div>
+
             </div>
           ))}
-        </div>
-      </div>
-
-      <div className="relative z-10 mx-auto w-full max-w-7xl">
-        <div className="mb-8 sm:mb-10 md:mb-12">
-          <h2 className="section-heading font-headline text-2xl font-extrabold tracking-tight sm:text-3xl md:text-4xl">Core Disciplines</h2>
-          <div className="h-1 w-12 bg-primary mt-4"></div>
-        </div>
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-3 md:gap-6">
-          <div className="h-full rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-transform hover:translate-y-[-4px] sm:p-6 md:p-8">
-            <span className="material-symbols-outlined text-primary text-3xl sm:text-4xl">database</span>
-            <h3 className="mt-4 font-headline text-lg font-bold sm:text-xl md:mt-5 md:text-2xl">Agentic AI Systems</h3>
-            <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              I build agent workflows that fetch live data, decide the next step, and execute tasks like search, summarization, and API actions.
-            </p>
-          </div>
-          <div className="h-full rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-transform hover:translate-y-[-4px] sm:p-6 md:p-8">
-            <span className="material-symbols-outlined text-primary text-3xl sm:text-4xl">terminal</span>
-            <h3 className="mt-4 font-headline text-lg font-bold sm:text-xl md:mt-5 md:text-2xl">Full Stack Dev</h3>
-            <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              I build and deploy end-to-end apps with React, Next.js, TypeScript, APIs, and databases, with attention to speed and maintainability.
-            </p>
-          </div>
-          <div className="h-full rounded-xl bg-surface-container-lowest p-5 shadow-sm transition-transform hover:translate-y-[-4px] sm:p-6 md:p-8">
-            <span className="material-symbols-outlined text-primary text-3xl sm:text-4xl">precision_manufacturing</span>
-            <h3 className="mt-4 font-headline text-lg font-bold sm:text-xl md:mt-5 md:text-2xl">Side Quests</h3>
-            <p className="mt-4 text-sm leading-relaxed text-on-surface-variant md:text-base">
-              I am interested in robotics, active in music as a guitarist and composer, and also into photography and cinematography.
-            </p>
-          </div>
+          <div className="border-t-2 border-on-background" />
         </div>
       </div>
     </section>

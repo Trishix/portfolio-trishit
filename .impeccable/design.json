@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-07T10:26:19.491969+00:00",
+  "title": "Design System: Trishit Swarnakar",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Bg",
+        "tonalRamp": [
+          "oklch(15.00% 0.00442 264.46)",
+          "oklch(26.43% 0.00442 264.46)",
+          "oklch(37.86% 0.00442 264.46)",
+          "oklch(49.29% 0.00442 264.46)",
+          "oklch(60.71% 0.00442 264.46)",
+          "oklch(72.14% 0.00442 264.46)",
+          "oklch(83.57% 0.00442 264.46)",
+          "oklch(95.00% 0.00442 264.46)"
+        ]
+      },
+      "white": {
+        "role": "neutral",
+        "displayName": "White",
+        "tonalRamp": [
+          "oklch(15.00% 0.00702 88.64)",
+          "oklch(26.43% 0.00702 88.64)",
+          "oklch(37.86% 0.00702 88.64)",
+          "oklch(49.29% 0.00702 88.64)",
+          "oklch(60.71% 0.00702 88.64)",
+          "oklch(72.14% 0.00702 88.64)",
+          "oklch(83.57% 0.00702 88.64)",
+          "oklch(95.00% 0.00702 88.64)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Muted",
+        "tonalRamp": [
+          "oklch(15.00% 0.00307 84.56)",
+          "oklch(26.43% 0.00307 84.56)",
+          "oklch(37.86% 0.00307 84.56)",
+          "oklch(49.29% 0.00307 84.56)",
+          "oklch(60.71% 0.00307 84.56)",
+          "oklch(72.14% 0.00307 84.56)",
+          "oklch(83.57% 0.00307 84.56)",
+          "oklch(95.00% 0.00307 84.56)"
+        ]
+      },
+      "red": {
+        "role": "primary",
+        "displayName": "Red",
+        "tonalRamp": [
+          "oklch(15.00% 0.17209 24.67)",
+          "oklch(26.43% 0.17209 24.67)",
+          "oklch(37.86% 0.17209 24.67)",
+          "oklch(49.29% 0.17209 24.67)",
+          "oklch(60.71% 0.17209 24.67)",
+          "oklch(72.14% 0.17209 24.67)",
+          "oklch(83.57% 0.17209 24.67)",
+          "oklch(95.00% 0.17209 24.67)"
+        ]
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Line",
+        "tonalRamp": [
+          "oklch(15.00% 0.00702 88.64)",
+          "oklch(26.43% 0.00702 88.64)",
+          "oklch(37.86% 0.00702 88.64)",
+          "oklch(49.29% 0.00702 88.64)",
+          "oklch(60.71% 0.00702 88.64)",
+          "oklch(72.14% 0.00702 88.64)",
+          "oklch(83.57% 0.00702 88.64)",
+          "oklch(95.00% 0.00702 88.64)"
+        ]
+      },
+      "section": {
+        "role": "neutral",
+        "displayName": "Section",
+        "tonalRamp": [
+          "oklch(15.00% 0.00604 271.13)",
+          "oklch(26.43% 0.00604 271.13)",
+          "oklch(37.86% 0.00604 271.13)",
+          "oklch(49.29% 0.00604 271.13)",
+          "oklch(60.71% 0.00604 271.13)",
+          "oklch(72.14% 0.00604 271.13)",
+          "oklch(83.57% 0.00604 271.13)",
+          "oklch(95.00% 0.00604 271.13)"
+        ]
+      },
+      "activity-panel": {
+        "role": "neutral",
+        "displayName": "Activity Panel",
+        "tonalRamp": [
+          "oklch(15.00% 0.00575 271.20)",
+          "oklch(26.43% 0.00575 271.20)",
+          "oklch(37.86% 0.00575 271.20)",
+          "oklch(49.29% 0.00575 271.20)",
+          "oklch(60.71% 0.00575 271.20)",
+          "oklch(72.14% 0.00575 271.20)",
+          "oklch(83.57% 0.00575 271.20)",
+          "oklch(95.00% 0.00575 271.20)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Condensed identity",
+        "purpose": "Uppercase hero name; smaller condensed headings preserve the same family."
+      },
+      "body": {
+        "displayName": "Manrope supporting text",
+        "purpose": "Navigation, descriptions, and factual supporting content."
+      }
+    },
+    "shadows": [
+      {
+        "name": "scrolled-header",
+        "value": "0 8px 30px #08090c1f",
+        "purpose": "Diffuse shadow below the translucent fixed navigation."
+      },
+      {
+        "name": "project-highlight",
+        "value": "inset 0 1px 0 #ffffff14",
+        "purpose": "Fine light edge inside project media."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease",
+        "value": "cubic-bezier(.22,1,.36,1)",
+        "purpose": "CSS hover and state easing."
+      },
+      {
+        "name": "hero-entrance",
+        "value": "1.1s power3.out; stagger .12s",
+        "purpose": "Hero name and introduction, only without reduced motion."
+      },
+      {
+        "name": "lenis-duration",
+        "value": "1.05",
+        "purpose": "Fine-pointer desktop wheel smoothing, 900px and wider."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "wide-photo-offset",
+        "value": "1600px"
+      },
+      {
+        "name": "compact-desktop",
+        "value": "1100px"
+      },
+      {
+        "name": "desktop-motion",
+        "value": "900px"
+      },
+      {
+        "name": "mobile-navigation",
+        "value": "899px"
+      },
+      {
+        "name": "single-column",
+        "value": "600px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary action",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Pale pill with a red directional arrow.",
+      "html": "<a class=\"ds-primary\" href=\"#work\">Explore my work<span><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></span></a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;justify-content:space-between;gap:2rem;border-radius:3rem;padding:.45rem .45rem .45rem 1.4rem;min-height:3.4rem;background:var(--white,#eeece7);color:var(--bg,#101113);font:700 .78rem var(--body,Manrope,sans-serif);text-decoration:none}.ds-primary span{display:grid;place-items:center;border-radius:50%;width:2.5rem;height:2.5rem;background:var(--red,#d34b49);transition:transform .5s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-primary svg{width:1.5rem;height:1.5rem;transform:rotate(90deg)}.ds-primary:hover span{transform:rotate(-45deg)}:focus-visible{outline:2px solid var(--red,#d34b49);outline-offset:6px}a:active,button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}"
+    },
+    {
+      "name": "Outlined contact action",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Compact navigation action.",
+      "html": "<a class=\"ds-contact\" href=\"#contact\">Contact <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-contact{display:inline-flex;gap:1.5rem;align-items:center;border:1px solid #eeece74d;border-radius:2rem;padding:.55rem .9rem .55rem 1.1rem;color:var(--white,#eeece7);font:.72rem var(--body,Manrope,sans-serif);text-decoration:none}.ds-contact svg{width:1.2em;height:1.2em;color:var(--red,#d34b49)}.ds-contact:hover{text-decoration:underline;text-decoration-color:var(--red,#d34b49);text-underline-offset:.3em}:focus-visible{outline:2px solid var(--red,#d34b49);outline-offset:6px}a:active,button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}"
+    },
+    {
+      "name": "Desktop section navigation",
+      "kind": "nav",
+      "description": "Current-location underline and quiet labels.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Sections\"><a href=\"#work\" aria-current=\"location\">Work</a><a href=\"#toolkit\">Expertise</a><a href=\"#education\">Education</a></nav>",
+      "css": ".ds-nav{display:flex;gap:1.7rem;color:var(--white,#eeece7);font:.72rem var(--body,Manrope,sans-serif)}.ds-nav a{position:relative;padding:.8rem 0;color:inherit;text-decoration:none}.ds-nav a:after{content:\"\";position:absolute;bottom:.3rem;left:0;right:0;height:1px;background:var(--red,#d34b49);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-nav a:hover:after,.ds-nav a[aria-current]:after{transform:scaleX(1)}:focus-visible{outline:2px solid var(--red,#d34b49);outline-offset:6px}a:active,button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}"
+    },
+    {
+      "name": "Project opening control",
+      "kind": "button",
+      "refersTo": "project-open",
+      "description": "Circular affordance; appears within a project link in the page.",
+      "html": "<a class=\"ds-open\" href=\"#work\" aria-label=\"Open project\"><svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></a>",
+      "css": ".ds-open{display:grid;place-items:center;width:2.5rem;height:2.5rem;border:1px solid var(--line,#eeece722);border-radius:50%;color:var(--white,#eeece7);transition:background .4s var(--ease,cubic-bezier(.22,1,.36,1)),transform .4s var(--ease,cubic-bezier(.22,1,.36,1))}.ds-open svg{width:1.38rem;height:1.38rem}.ds-open:hover{background:var(--red,#d34b49);color:var(--bg,#101113);transform:rotate(45deg)}:focus-visible{outline:2px solid var(--red,#d34b49);outline-offset:6px}a:active,button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}"
+    },
+    {
+      "name": "Project stack tags",
+      "kind": "chip",
+      "description": "Noninteractive underlined text tags beneath project descriptions.",
+      "html": "<ul class=\"ds-tags\"><li>TypeScript</li><li>Next.js</li><li>GSAP</li></ul>",
+      "css": ".ds-tags{list-style:none;padding:0;display:flex;gap:.5rem 1rem;flex-wrap:wrap;margin:1rem 0 0}.ds-tags li{color:#c2bebb;font:.59rem var(--body,Manrope,sans-serif);border-bottom:1px solid var(--line,#eeece722);padding-bottom:.3rem}"
+    },
+    {
+      "name": "Activity preview card",
+      "kind": "card",
+      "refersTo": "activity-card",
+      "description": "Explicit-load social preview, with a direct external destination.",
+      "html": "<article class=\"ds-activity\"><div class=\"ds-activity-head\">LinkedIn<a href=\"https://www.linkedin.com/\">View post</a></div><div class=\"ds-preview\"><span>in</span><p>Updates from the work.</p><button type=\"button\">Load post <svg viewBox=\"0 0 24 24\" fill=\"none\" aria-hidden=\"true\"><path d=\"M5 19 19 5M5 5h14v14\" stroke=\"currentColor\" stroke-width=\"1.3\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div></article>",
+      "css": ".ds-activity{width:21rem;max-width:100%;background:var(--activity-panel,#242528);border-radius:1rem;overflow:hidden;padding:.4rem;font-family:var(--body,Manrope,sans-serif);color:var(--white,#eeece7)}.ds-activity-head{display:flex;justify-content:space-between;align-items:center;height:3rem;padding:0 .9rem;font-size:.68rem}.ds-activity-head a{color:#ee9390;text-decoration:none}.ds-activity-head a:hover{text-decoration:underline}.ds-preview{height:22rem;display:flex;flex-direction:column;justify-content:space-between;padding:1.8rem;background:#292c32;border-radius:.65rem}.ds-preview>span{font-size:4rem;font-weight:700;line-height:1;letter-spacing:-.04em;color:#cfcbc6}.ds-preview p{font-size:1.2rem;max-width:12rem;line-height:1.5}.ds-preview button{display:flex;justify-content:space-between;width:100%;margin-top:1.5rem;padding:.8rem 0;font:.75rem var(--body,Manrope,sans-serif);color:#ee9390;border:0;border-top:1px solid #eeece733;background:transparent;cursor:pointer}.ds-preview svg{width:1.2em;height:1.2em}.ds-preview button:hover{color:var(--white,#eeece7)}:focus-visible{outline:2px solid var(--red,#d34b49);outline-offset:6px}a:active,button:active{transform:translateY(1px)}@media(prefers-reduced-motion:reduce){*{transition:none!important}}"
+    }
+  ],
+  "narrative": {
+    "northStar": "After dark",
+    "overview": "A mature Spider-Man-inspired editorial world: charcoal, muted signal red, night photography, and condensed type. Personal identity and real engineering evidence carry the page; web geometry supplies a recognizable atmosphere without competing with reading.",
+    "keyCharacteristics": [
+      "Condensed display typography with clear Manrope supporting text.",
+      "Integrated night photography and asymmetric project evidence.",
+      "Flat tonal sections, precise hairlines, and rounded action controls.",
+      "Restrained web interaction with native mobile scrolling and reduced-motion fallbacks."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve existing identity imagery and factual project content.",
+      "Do place project names before category metadata and headings before supporting copy.",
+      "Do use the shared thin-stroke SVG arrows and capability symbols.",
+      "Do preserve visible keyboard focus, mobile navigation behavior, and reduced-motion access."
+    ],
+    "donts": [
+      "Don't reintroduce a rectangular portrait panel; dissolve the photograph into the charcoal background.",
+      "Don't turn the Spider-Man reference into comic typography or competing decorative effects.",
+      "Don't invent achievements or describe the design as award-winning.",
+      "Don't add Barba route interception to this single-route portfolio."
+    ]
+  }
+}

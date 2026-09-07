@@ -8,7 +8,6 @@ colors:
   red: "#d34b49"
   line: "#eeece722"
   section: "#191a1d"
-  activity-panel: "#242528"
 typography:
   display:
     fontFamily: "Barlow Condensed, sans-serif"
@@ -64,10 +63,9 @@ components:
   project-open-hover:
     backgroundColor: "{colors.red}"
     textColor: "{colors.bg}"
-  activity-card:
-    backgroundColor: "{colors.activity-panel}"
-    rounded: "{rounded.media}"
-    padding: "0.4rem"
+  activity-photo:
+    backgroundColor: "{colors.bg}"
+    rounded: "0.4rem"
 ---
 
 # Design System: Trishit Swarnakar
@@ -93,7 +91,7 @@ Muted signal red (`red`) identifies the name, selected heading words, arrows, se
 
 ### Neutral
 
-Charcoal (`bg`) is the continuous canvas. Warm pale text (`white`) carries headings and primary actions; stone gray (`muted`) carries supporting copy. Translucent pale hairlines (`line`) divide editorial rows. Slightly lighter charcoal (`section`) separates expertise and activity; `activity-panel` contains social previews. These are roles, not interchangeable decorative accents.
+Charcoal (`bg`) is the continuous canvas. Warm pale text (`white`) carries headings and primary actions; stone gray (`muted`) carries supporting copy. Translucent pale hairlines (`line`) divide editorial rows. Slightly lighter charcoal (`section`) separates expertise and appears in the activity section's muted warm-to-charcoal gradient. These are roles, not interchangeable decorative accents.
 
 ## Typography
 
@@ -109,7 +107,7 @@ Project evidence uses a 12-column grid with 7/5 and 6/6 spans, a 6rem offset for
 
 ## Elevation & Depth
 
-Depth comes primarily from tonal section changes, image crops, hairlines, and a fixed grain overlay (opacity .035). The scrolled header alone uses a diffuse exterior shadow (0 8px 30px #08090c1f) with 16px backdrop blur, reduced to 12px below 900px. Project media has fine inset highlights. Photography blends into its surroundings through directional shading and intersecting edge masks; it is not a raised portrait card.
+Depth comes primarily from tonal section changes, image crops, hairlines, and a fixed grain overlay (opacity .035). The scrolled header uses a diffuse exterior shadow (0 8px 30px #08090c1f) with 16px backdrop blur, reduced to 12px below 900px. Activity photographs use a 0 16px 28px #08090c40 shadow; their dialog uses a dark backdrop with 8px blur. Project media has fine inset highlights. Hero photography blends into its surroundings through directional shading and intersecting edge masks; it is not a raised portrait card.
 
 ## Shapes
 
@@ -121,7 +119,7 @@ Actions use pale pills with red circular arrow wells. Project and social imagery
 
 Primary actions share a 3.4rem minimum height, pale fill, dark text, and a 2.5rem red arrow circle; hover rotates the circle by -45 degrees. The mobile hero action is 2.8rem high with a 2rem circle. The contact navigation action is outlined. Links and buttons receive a 2px red focus outline with a 6px offset and a 1px press translation.
 
-The fixed pill navigation gains a dark translucent surface after the hero. Desktop links use a red underline for hover and current location. Below 900px it becomes a menu toggle and large section links. Escape closes the menu and restores toggle focus; Tab stays within visible header controls while open. Selecting a section updates the fragment, closes the menu, and focuses the target.
+The fixed pill navigation gains a dark translucent surface after the hero. At scrollY >= 120px, 12px of travel in the current direction hides it on downward scroll and reveals it on upward scroll. It stays visible near the top, while the mobile menu is open, or while a header control has keyboard-visible focus. Desktop links use a red underline for hover and current location. Below 900px it becomes a menu toggle and large section links. Escape closes the menu and restores toggle focus; Tab stays within visible header controls while open. Selecting a section updates the fragment, closes the menu, and focuses the target.
 
 ### Projects and supporting lists
 
@@ -129,7 +127,9 @@ Project titles precede category/year, descriptions, and underlined text stack ta
 
 ### Social activity
 
-Social previews are rounded charcoal cards with platform labels, explicit load controls, and direct external links. Third-party embeds load only after the visitor requests them. Track buttons and native horizontal scrolling provide access to adjacent posts. There are no input-field components in the current interface.
+The "Off the clock." gallery uses real local Instagram and LinkedIn photographs and screenshots from `public/social`, with staggered vertical offsets, slight alternating rotations, platform labels, and numbered captions. Photo frames use .4rem corners; screenshots use contain fitting. Cards are clamp(17rem, 25vw, 22.5rem) wide and become 78vw on phones. Clicking a photograph loads its full platform embed in a native modal dialog with a close control and direct external link. Escape and backdrop clicks close the dialog; modified link clicks retain native external navigation.
+
+GSAP continuously drifts the horizontal track between its ends at 42px/s, slowing to 18px/s on hover. Explicit pause, pointer or wheel interaction, keyboard focus, and track navigation stop autoplay until Play is requested. An open dialog, an offscreen section, a hidden document, or reduced motion also suppresses drift. Mouse dragging has eased release inertia, while touch scrolling remains native; reduced motion disables autoplay and drag inertia and makes track-button movement immediate. Previous/next controls, a post count, and a progress line provide orientation. There are no input-field components in the current interface.
 
 ### Web field and motion
 

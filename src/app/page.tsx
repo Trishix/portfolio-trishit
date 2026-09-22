@@ -1,6 +1,7 @@
 import Image, { StaticImageData } from 'next/image'
 import ActivityGallery from '@/components/ActivityGallery'
-import { ArrowIcon, CapabilityIcon } from '@/components/InterfaceIcon'
+import SkillsGraph from '@/components/SkillsGraph'
+import { ArrowIcon } from '@/components/InterfaceIcon'
 import WebField from '@/components/WebField'
 import SpiderMark from '@/components/SpiderMark'
 import MotionController from '@/components/MotionController'
@@ -335,20 +336,7 @@ export default function Home() {
             <h2 id="capabilities-title">The tools.<br /><span>The thinking.</span></h2>
             <p>From interface to intelligence.<br />The skills behind the work.</p>
           </div>
-          <div className="capabilities-viewport">
-            <div className="capabilities-track">
-              {capabilities.map((capability) => (
-                <article className="capability-panel" key={capability.title}>
-                  <span className="capability-symbol"><CapabilityIcon kind={capability.index} /></span>
-                  <h3>{capability.title}</h3>
-                  <p>{capability.text}</p>
-                  <ul>
-                    {capability.tools.map((tool) => <li key={tool}>{tool}</li>)}
-                  </ul>
-                </article>
-              ))}
-            </div>
-          </div>
+          <SkillsGraph groups={capabilities} />
         </section>
 
         <section className="journey" id="experience" aria-labelledby="experience-title">

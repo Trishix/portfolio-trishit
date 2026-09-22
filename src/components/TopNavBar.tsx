@@ -7,6 +7,7 @@ import SpiderMark from './SpiderMark'
 const navItems = [
   { id: 'work', label: 'Work' },
   { id: 'toolkit', label: 'Expertise' },
+  { id: 'experience', label: 'Experience' },
   { id: 'education', label: 'Education' },
   { id: 'journey', label: 'Beyond' },
   { id: 'activity', label: 'Activity' },

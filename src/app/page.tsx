@@ -8,6 +8,7 @@ import TopNavBar from '@/components/TopNavBar'
 import portraitImage from '@/assets/trishit-hero-cinematic.jpg'
 import ryokuImage from '@/assets/ryoku.png'
 import vflowImage from '@/assets/vflow.png'
+import lldImage from '@/assets/lldpractice.png'
 import ubotImage from '@/assets/ubot.png'
 import vickyImage from '@/assets/devliveproject.png'
 import stringzImage from '@/assets/stringzthumb.png'
@@ -32,23 +33,23 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'Ryoku',
-    description: 'One-click AI customer support agents trained on a business knowledge base.',
+    description: 'Built document and web retrieval, model failover, and streamed tool calls for AI support, with live escalation queues and human handoff.',
     category: 'AI product',
     year: '2026',
     href: 'https://ryoku-iota.vercel.app/',
     image: ryokuImage,
-    stack: ['Next.js', 'TypeScript', 'AI SDK'],
+    stack: ['Next.js', 'TypeScript', 'pgvector', 'PostgreSQL', 'Redis', 'Pusher', 'Vercel AI SDK'],
     span: 'wide',
     preview: 'contain-light',
   },
   {
     title: 'VFlow',
-    description: 'A visual environment for composing and running reusable multi-step AI workflows.',
+    description: 'Built a visual workflow engine with streaming, cancellation, and six model providers. Users connect nodes into reusable pipelines and supply their own API keys.',
     category: 'AI tooling',
     year: '2026',
     href: 'https://vflow-project.vercel.app/',
     image: vflowImage,
-    stack: ['Next.js 15', 'XYFlow', 'Zustand'],
+    stack: ['Next.js', 'TypeScript', 'React Flow', 'Vercel AI SDK', 'Zustand', 'Zod'],
     span: 'narrow',
     preview: 'contain-dark',
   },
@@ -71,6 +72,17 @@ const projects: Project[] = [
     image: vickyImage,
     stack: ['React 19', 'TypeScript', 'Zustand'],
     span: 'wide',
+  },
+  {
+    title: 'LLD Practice',
+    description: 'Built guided design worksheets, generated UML, quiz scoring, and revision history. AI reviews check evidence against submitted fields before publishing feedback.',
+    category: 'AI learning tool',
+    year: '2026',
+    href: 'https://github.com/Trishix/lldpractice',
+    image: lldImage,
+    stack: ['Next.js', 'TypeScript', 'Groq SDK', 'Zod', 'Zustand', 'Vitest', 'Playwright'],
+    span: 'third',
+    preview: 'contain-dark',
   },
   {
     title: 'Stringz',
@@ -109,7 +121,7 @@ const education = [
     title: 'B.Tech in CSAI',
     school: 'Newton School of Technology, Rishihood University',
     status: 'Current program',
-    detail: 'Computer Science and Artificial Intelligence',
+    detail: 'Computer Science and Artificial Intelligence; Minor in Finance',
     result: '2024 - 2028',
     image: nstImage,
   },
@@ -126,70 +138,113 @@ const education = [
     school: 'Springdale High School',
     status: 'Completed',
     detail: 'Physical Science, Mathematics, Biology, Geography, History, English',
-    result: '88% WBBSE',
+    result: '87.0% WBBSE',
     image: springdaleImage,
   },
 ]
 
 const beyond = [
   {
+    period: 'Robotics',
+    title: 'Technical Specialist, SAST',
+    place: 'RIT Rover Innovation Team',
+    detail: 'Built ESP32 and Arduino subsystems in embedded C/C++; contributed to teams competing at IIT Delhi, DTU, and SRM.',
+  },
+  {
     period: '2025',
     title: 'HPAIR Delegate',
     place: 'Harvard Project for Asian and International Relations',
-    detail: 'Selected to discuss policy, technology, and regional challenges with an international cohort.',
+    detail: 'Delegate at the Harvard and Asia HPAIR conferences.',
   },
   {
     period: '2024',
     title: 'Former Vice President',
     place: 'Robotics Club, Newton School of Technology',
-    detail: 'Led workshops, coordinated teams, and helped students move robotics projects from idea to prototype.',
+    detail: 'Led CAD and robotics workshops, coordinated teams, and represented the club at Bharat Mandapam for Rishihood’s 10th Convocation.',
   },
   {
     period: '10+ years',
     title: 'Guitarist and Composer',
     place: 'Live performance and original music',
-    detail: 'Music sharpens the same instincts engineering needs: timing, restraint, iteration, and listening.',
+    detail: 'Lead guitarist with 10+ years of experience. Coordinated Damru’s Battle of Bands with 10 teams.',
+  },
+]
+
+const experience = [
+  {
+    period: 'Jun – Sep 2026',
+    title: 'LLM Research Engineer Intern',
+    place: 'Aicoo · Remote, Oxford, United Kingdom',
+    points: [
+      'Built evaluation harnesses to test LLM behavior, prompt-injection defenses, and output guardrails.',
+      'Prototyped retrieval and agent components; evaluated accuracy and robustness to guide implementation changes.',
+      'Contributed to shared agent infrastructure and agent-to-agent decision-making.',
+    ],
   },
 ]
 
 const capabilities = [
   {
-    title: 'Frontend systems',
+    title: 'Full-stack development',
     index: '01',
-    text: 'Responsive product interfaces with deliberate interaction, motion, accessibility, and performance.',
-    tools: ['TypeScript', 'React 19', 'Next.js 15 / 16', 'GSAP', 'Tailwind CSS 4', 'Zustand'],
+    text: 'I build web and mobile interfaces, connect APIs, and handle application state.',
+    tools: ['TypeScript', 'JavaScript', 'React', 'Next.js', 'React Native', 'Tailwind CSS', 'GSAP', 'Zustand', 'Zod'],
   },
   {
-    title: 'AI engineering',
+    title: 'AI and agent systems',
     index: '02',
-    text: 'Agentic workflows and retrieval systems designed around useful behavior, not model spectacle.',
-    tools: ['Vercel AI SDK', 'LangGraph', 'LangChain', 'Transformers', 'LanceDB', 'RAG'],
+    text: 'I build retrieval pipelines and agent workflows, and evaluate model behavior with harnesses and guardrails.',
+    tools: ['LLMs', 'RAG', 'Agentic AI', 'Multi-model orchestration', 'Agent-to-agent communication', 'Model Context Protocol (MCP)', 'Agent skills and plugins', 'AI / agent harnesses', 'LLM evaluations', 'Prompt engineering', 'Tool calling', 'Guardrails', 'Vercel AI SDK', 'LangChain', 'LangGraph'],
   },
   {
     title: 'Backend and data',
     index: '03',
-    text: 'Production-minded APIs, persistence, authentication, and data flows that remain understandable.',
-    tools: ['Node.js', 'Python', 'Supabase', 'MongoDB', 'REST APIs', 'Docker'],
+    text: 'I implement APIs, authentication, vector retrieval, and real-time application features.',
+    tools: ['Python', 'SQL', 'Node.js', 'Express.js', 'REST APIs', 'OAuth 2.0', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'pgvector', 'Drizzle ORM'],
   },
   {
-    title: 'Product execution',
+    title: 'Product development',
     index: '04',
-    text: 'From ambiguous problem to shipped product: architecture, interface decisions, iteration, and delivery.',
-    tools: ['System design', 'Prototyping', 'Open source', 'Performance', 'Testing', 'Deployment'],
+    text: 'I use AI coding tools and documentation to learn unfamiliar stacks and turn rough ideas into working applications.',
+    tools: ['Prototyping', 'Figma', 'Git', 'GitHub Actions', 'Jest', 'Vitest', 'Playwright', 'Swagger', 'n8n', 'Agile', 'Scrum', 'Deployment'],
+  },
+  {
+    title: 'Computer science',
+    index: '01',
+    text: 'I apply computer science foundations to program structure, data flow, and system behavior.',
+    tools: ['Data structures and algorithms (DSA)', 'Object-oriented programming', 'DBMS', 'Computer networks', 'System design', 'Concurrency', 'Real-time systems', 'Embedded C/C++'],
+  },
+  {
+    title: 'Machine learning',
+    index: '02',
+    text: 'My studies cover machine learning, deep learning, natural language processing, and data analysis.',
+    tools: ['Machine learning', 'Deep learning', 'NLP', 'TensorFlow', 'scikit-learn', 'Hugging Face', 'NumPy', 'Pandas', 'SciPy'],
+  },
+  {
+    title: 'Networks and cloud',
+    index: '03',
+    text: 'Coursework and labs cover network protocols, cloud traffic routing, access controls, and service connectivity.',
+    tools: ['TCP/IP', 'HTTP/HTTPS', 'TLS', 'Client–server networking', 'Peer-to-peer networking', 'AWS VPC', 'EC2', 'Security groups', 'Ports', 'Route tables', 'Gateways', 'Cloudflare Tunnel'],
+  },
+  {
+    title: 'Community and business',
+    index: '04',
+    text: 'I co-founded a marketing agency, managed content for GoForGold and Life@Rishihood, and led student workshops and events.',
+    tools: ['Content planning', 'Team coordination', 'Workshops', 'Event coordination'],
   },
 ]
 
 const socialLinks = [
   { label: 'GitHub', href: 'https://github.com/Trishix' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/trishit-swarnakar-b7350828a' },
-  { label: 'LeetCode', href: 'https://leetcode.com/trishix' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/trishit-swarnakar' },
+  { label: 'LeetCode', href: 'https://leetcode.com/u/trishix/' },
   { label: 'Instagram', href: 'https://www.instagram.com/trishix/' },
 ]
 
 const calendlyUrl = 'https://calendly.com/trishitofficial/30min'
 
 export default function Home() {
-  const manifesto = 'I build full-stack products and AI systems. From the first interaction to the logic behind it.'
+  const manifesto = 'I work across software, AI, and product. I turn ideas into applications people can use.'
 
   return (
     <>
@@ -205,7 +260,7 @@ export default function Home() {
             <h1 id="hero-title" data-hero-reveal><span>Trishit</span><span>Swarnakar<span className="name-period">.</span></span></h1>
             <div className="hero-intro" data-hero-reveal>
               <span className="hero-role">Your friendly neighbourhood<br /><strong>Full-stack & AI engineer.</strong></span>
-              <p>Building intelligent products, resilient interfaces, and technical systems with a point of view.</p>
+              <p>I build full-stack applications, AI tools, and agent workflows, using code, AI assistants, and documentation.</p>
               <a className="primary-action" href="#work" data-magnetic>Explore my work <span><ArrowIcon direction="down-right" /></span></a>
             </div>
             <div className="hero-caption"><span>Delhi / Kalyani, India</span><span>Scroll to explore <ArrowIcon direction="down" /></span></div>
@@ -228,7 +283,7 @@ export default function Home() {
               ))}
             </p>
             <div className="manifesto-notes" data-reveal>
-              <p>I work across product engineering, agentic AI, and frontend systems, keeping architecture clear and complex interactions direct.</p>
+              <p>I’m a Computer Science and AI undergraduate at Newton School of Technology, Rishihood University, with a minor in Finance. My work spans product development, retrieval systems, LLM evaluations, and real-time collaboration.</p>
             </div>
           </div>
         </section>
@@ -296,6 +351,26 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="journey" id="experience" aria-labelledby="experience-title">
+          <div className="journey-shell section-shell">
+            <div className="chapter-heading" data-reveal>
+              <h2 id="experience-title">Experience.</h2>
+              <p>LLM evaluation, retrieval, and shared agent infrastructure.</p>
+            </div>
+            <div className="journey-list">
+              {experience.map((item) => (
+                <article className="journey-row" data-reveal key={item.title}>
+                  <time>{item.period}</time>
+                  <div><h3>{item.title}</h3><p>{item.place}</p></div>
+                  <ul className="experience-points">
+                    {item.points.map((point) => <li key={point}>{point}</li>)}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="education" id="education" aria-labelledby="education-title">
           <div className="education-shell section-shell">
             <div className="chapter-heading" data-reveal>
@@ -344,7 +419,7 @@ export default function Home() {
           <div className="contact-web contact-web-bottom" aria-hidden="true" />
           <div className="contact-shell section-shell">
             <h2 data-reveal>Have something<br /><span>in mind?</span></h2>
-            <p className="contact-intro" data-reveal>Let’s talk about your next build.</p>
+            <p className="contact-intro" data-reveal>Let’s talk about your next build.<br /><a href="/trishit-swarnakar-resume.pdf" download>Download my resume <ArrowIcon /></a></p>
             <a className="contact-cta" href={calendlyUrl} target="_blank" rel="noreferrer noopener" data-reveal>
               Schedule a call <span><ArrowIcon /></span>
             </a>

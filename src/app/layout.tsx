@@ -8,7 +8,7 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: 'Trishit Swarnakar | Full-Stack & AI Developer',
-  description: 'Trishit Swarnakar builds full-stack products, AI agents, and useful digital experiences.',
+  description: 'Trishit Swarnakar works across software engineering, applied AI, and product development. Explore projects, LLM research experience, and technical skills.',
   icons: {
     icon: [
       { url: '/brand-icon.svg', type: 'image/svg+xml' },
